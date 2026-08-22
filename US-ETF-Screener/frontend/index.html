@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美股 ETF 篩選器</title>
+    <meta name="description" content="美股 ETF 多因子篩選器 - 動能 x 品質 x 價值 x 成長 x 技術面 x 訊號評分">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css?v=4">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Section 1: Header -->
+        <header class="glass-panel">
+            <div class="header-left">
+                <h1>美股 ETF 篩選器</h1>
+                <p class="subtitle">多因子分析 x 技術面 x 訊號評分 | 2,800+ 檔美股 ETF</p>
+            </div>
+            <div class="header-right">
+                <div class="meta-info">
+                    <span class="label">最後更新</span>
+                    <span class="value" id="update-time">--</span>
+                </div>
+                <div class="meta-info">
+                    <span class="label">ETF 數量</span>
+                    <span class="value" id="etf-count">--</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="top-dashboard">
+                <!-- Section 2: ETF Market Temperature Gauge -->
+                <section class="glass-panel temperature-section">
+                    <div class="section-header">
+                        <h2>市場溫度計</h2>
+                        <div class="timeframe-toggle">
+                            <button class="toggle-btn active" data-tf="daily" id="temp-tf-daily">日線</button>
+                            <button class="toggle-btn" data-tf="hourly" id="temp-tf-hourly">小時線</button>
+                        </div>
+                    </div>
+                    
+                    <div class="gauge-container">
+                        <div class="gauge">
+                            <svg viewBox="0 0 100 50" class="gauge-svg">
+                                <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round"/>
+                                <path class="gauge-fill" id="gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6"/>
+                            </svg>
+                            <div class="gauge-value" id="gauge-value">--</div>
+                            <div class="gauge-label" id="gauge-label">--</div>
+                        </div>
+                    </div>
+
+                    <div class="indicators" id="indicators-container">
+                        <!-- Dynamically populated -->
+                    </div>
+                </section>
+
+                <!-- Section 3: Screener Filters -->
+                <section class="glass-panel filters-section">
+                    <div class="section-header">
+                        <h2>篩選條件</h2>
+                        <div class="quick-filters">
+                            <button class="btn btn-primary" id="qf-momentum">動能領先</button>
+                            <button class="btn btn-primary" id="qf-quality">品質精選</button>
+                            <button class="btn btn-primary" id="qf-value">價值投資</button>
+                            <button class="btn btn-primary" id="qf-bullish">多頭排列</button>
+                            <button class="btn btn-primary" id="qf-yield">高殖利率</button>
+                            <button class="btn btn-danger" id="qf-reset">全部重置</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-grid">
+                        <!-- Dropdowns -->
+                        <div class="filter-group">
+                            <label>ETF 類別</label>
+                            <select id="filter-category">
+                                <option value="All">全部</option>
+                                <option value="股票指數型">股票指數型</option>
+                                <option value="債券型">債券型</option>
+                                <option value="產業型">產業型</option>
+                                <option value="國際型">國際型</option>
+                                <option value="配息型">配息型</option>
+                                <option value="槓桿型">槓桿型</option>
+                                <option value="反向型">反向型</option>
+                                <option value="商品型">商品型</option>
+                                <option value="不動產型">不動產型</option>
+                                <option value="主題型">主題型</option>
+                                <option value="因子策略">因子策略</option>
+                                <option value="選擇權策略">選擇權策略</option>
+                                <option value="主動型">主動型</option>
+                                <option value="多元資產">多元資產</option>
+                                <option value="另類策略">另類策略</option>
+                                <option value="加密貨幣">加密貨幣</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>子類別</label>
+                            <select id="filter-sub-category">
+                                <option value="All">全部</option>
+                                <!-- Populated dynamically based on category -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>買賣訊號</label>
+                            <select id="filter-signal">
+                                <option value="All">全部</option>
+                                <option value="Strong Buy">強烈買入</option>
+                                <option value="Buy">買入</option>
+                                <option value="Neutral">中性</option>
+                                <option value="Sell">賣出</option>
+                                <option value="Strong Sell">強烈賣出</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>三軍陣列均線</label>
+                            <select id="filter-army">
+                                <option value="All">全部</option>
+                                <option value="Bullish">多方排列</option>
+                                <option value="Bearish">空方排列</option>
+                                <option value="Mixed">糾結</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>MACD</label>
+                            <select id="filter-macd">
+                                <option value="All">全部</option>
+                                <option value="Expanding+">紅柱放大</option>
+                                <option value="Expanding-">紅柱縮小</option>
+                                <option value="Expanding">紅柱 (全部)</option>
+                                <option value="Shrinking+">綠柱縮小</option>
+                                <option value="Shrinking-">綠柱放大</option>
+                                <option value="Shrinking">綠柱 (全部)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>海龜通道</label>
+                            <select id="filter-turtle">
+                                <option value="All">全部</option>
+                                <option value="Breakout">突破</option>
+                                <option value="Breakdown">跌破</option>
+                                <option value="Consolidation">盤整</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>搜尋 (代號 / 名稱)</label>
+                            <input type="text" id="filter-search" placeholder="例: SPY, QQQ...">
+                        </div>
+                        
+                        <!-- Sliders -->
+                        <div class="filter-group">
+                            <label>動能最低: <span id="val-momentum">0</span></label>
+                            <input type="range" id="filter-momentum" min="0" max="100" value="0">
+                        </div>
+                        <div class="filter-group">
+                            <label>品質最低: <span id="val-quality">0</span></label>
+                            <input type="range" id="filter-quality" min="0" max="100" value="0">
+                        </div>
+                        <div class="filter-group">
+                            <label>估值最低: <span id="val-valuation">0</span></label>
+                            <input type="range" id="filter-valuation" min="0" max="100" value="0">
+                        </div>
+                        <div class="filter-group">
+                            <label>成長最低: <span id="val-growth">0</span></label>
+                            <input type="range" id="filter-growth" min="0" max="100" value="0">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="filter-status">
+                        符合條件: <span id="filtered-count" class="highlight">-- / --</span>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section 4: Results Table -->
+            <section class="glass-panel table-section">
+                <div class="table-container">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="sortable" data-sort="symbol">代號</th>
+                                <th>名稱</th>
+                                <th class="sortable" data-sort="category">類別</th>
+                                <th class="sortable" data-sort="price">現價</th>
+                                <th class="sortable" data-sort="change_1d_pct">漲跌%</th>
+                                <th class="sortable" data-sort="signal.score">訊號</th>
+                                <th class="sortable" data-sort="factors.momentum">動能</th>
+                                <th class="sortable" data-sort="factors.quality">品質</th>
+                                <th class="sortable" data-sort="factors.valuation">估值</th>
+                                <th class="sortable" data-sort="factors.growth">成長</th>
+                                <th class="sortable" data-sort="yield.annual_pct">殖利率%</th>
+                                <th class="sortable" data-sort="metadata.expense_ratio">費用率%</th>
+                                <th class="sortable" data-sort="metadata.fund_size">規模</th>
+                                <th>三軍陣列</th>
+                                <th>海龜</th>
+                                <th>MACD</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pagination">
+                    <button class="btn" id="page-prev">上一頁</button>
+                    <span id="page-info">第 1 頁</span>
+                    <button class="btn" id="page-next">下一頁</button>
+                </div>
+            </section>
+
+            <!-- Section 5: Category Heatmap -->
+            <section class="glass-panel heatmap-section">
+                <div class="section-header">
+                    <h2>類別熱力圖</h2>
+                </div>
+                <div class="heatmap-container" id="heatmap-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>免責聲明: 本網站提供之資訊僅供參考，不構成投資建議。投資有風險，請審慎評估。</p>
+            <p>資料來源: yfinance | Excel 來源: ETF3 元適用標的清單</p>
+        </footer>
+    </div>
+    
+    <script src="app.js?v=5"></script>
+</body>
+</html>
