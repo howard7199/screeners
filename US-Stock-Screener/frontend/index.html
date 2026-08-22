@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美股篩選器 | JARVIS SELECT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css?v=3">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Section 1: Header -->
+        <header class="glass-panel">
+            <div class="header-left">
+                <h1>美股篩選器</h1>
+                <p class="subtitle">JARVIS SELECT 對標版 · 四大因子 × 三軍陣列 × 市場溫度計</p>
+            </div>
+            <div class="header-right">
+                <div class="meta-info">
+                    <span class="label">最後更新</span>
+                    <span class="value" id="update-time">--</span>
+                </div>
+                <div class="meta-info">
+                    <span class="label">股票數量</span>
+                    <span class="value" id="stock-count">--</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="top-dashboard">
+                <!-- Section 2: Market Temperature Gauge -->
+                <section class="glass-panel temperature-section">
+                    <div class="section-header">
+                        <h2>市場溫度計</h2>
+                        <div class="timeframe-toggle">
+                            <button class="toggle-btn active" data-tf="daily" id="temp-tf-daily">日線</button>
+                            <button class="toggle-btn" data-tf="hourly" id="temp-tf-hourly">1H</button>
+                        </div>
+                    </div>
+                    
+                    <div class="gauge-container">
+                        <div class="gauge">
+                            <svg viewBox="0 0 100 50" class="gauge-svg">
+                                <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round"/>
+                                <path class="gauge-fill" id="gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6"/>
+                            </svg>
+                            <div class="gauge-value" id="gauge-value">--</div>
+                            <div class="gauge-label" id="gauge-label">--</div>
+                        </div>
+                    </div>
+
+                    <div class="indicators" id="indicators-container">
+                        <!-- Dynamically populated -->
+                    </div>
+                </section>
+
+                <!-- Section 3: Screener Filters -->
+                <section class="glass-panel filters-section">
+                    <div class="section-header">
+                        <h2>篩選條件</h2>
+                        <div class="quick-filters">
+                            <button class="btn btn-primary" id="qf-momentum">動能強勢</button>
+                            <button class="btn btn-primary" id="qf-value">價值低估</button>
+                            <button class="btn btn-primary" id="qf-growth">高品質成長</button>
+                            <button class="btn btn-primary" id="qf-army">三軍多方</button>
+                            <button class="btn btn-danger" id="qf-reset">全部重置</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-grid">
+                        <!-- Sliders -->
+                        <div class="filter-group">
+                            <label>動能 (Min: <span id="val-momentum">0</span>)</label>
+                            <input type="range" id="filter-momentum" min="0" max="100" value="0">
+                        </div>
+                        <div class="filter-group">
+                            <label>品質 (Min: <span id="val-quality">0</span>)</label>
+                            <input type="range" id="filter-quality" min="0" max="100" value="0">
+                        </div>
+                        <div class="filter-group">
+                            <label>估值 (Min: <span id="val-valuation">0</span>)</label>
+                            <input type="range" id="filter-valuation" min="0" max="100" value="0">
+                        </div>
+                        <div class="filter-group">
+                            <label>成長 (Min: <span id="val-growth">0</span>)</label>
+                            <input type="range" id="filter-growth" min="0" max="100" value="0">
+                        </div>
+
+                        <!-- Dropdowns -->
+                        <div class="filter-group">
+                            <label>週期</label>
+                            <select id="filter-timeframe">
+                                <option value="daily">日線</option>
+                                <option value="hourly">1H</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>三軍排列</label>
+                            <select id="filter-army">
+                                <option value="all">全部</option>
+                                <option value="多方排列">多方排列</option>
+                                <option value="空方排列">空方排列</option>
+                                <option value="糾結">糾結</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>MACD</label>
+                            <select id="filter-macd">
+                                <option value="all">全部</option>
+                                <option value="柱狀圖為正">柱狀圖為正</option>
+                                <option value="紅柱放大">紅柱放大</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>海龜</label>
+                            <select id="filter-turtle">
+                                <option value="all">全部</option>
+                                <option value="突破">突破</option>
+                                <option value="破低">破低</option>
+                                <option value="盤整">盤整</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>類股 (Sector)</label>
+                            <select id="filter-sector">
+                                <option value="all">全部</option>
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>搜尋 (Symbol / Name)</label>
+                            <input type="text" id="filter-search" placeholder="例如: NVDA, Apple...">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-status">
+                        符合條件：<span id="filtered-count" class="highlight">-- / --</span> 檔
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section 4: Results Table -->
+            <section class="glass-panel table-section">
+                <div class="table-container">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="sortable" data-sort="symbol">代號</th>
+                                <th>名稱</th>
+                                <th class="sortable" data-sort="price">現價</th>
+                                <th class="sortable" data-sort="change_1d_pct">漲跌%</th>
+                                <th class="sortable" data-sort="factors.momentum">動能</th>
+                                <th class="sortable" data-sort="factors.quality">品質</th>
+                                <th class="sortable" data-sort="factors.valuation">估值</th>
+                                <th class="sortable" data-sort="factors.growth">成長</th>
+                                <th>三軍陣列</th>
+                                <th>海龜</th>
+                                <th>MACD</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pagination">
+                    <button class="btn" id="page-prev">上一頁</button>
+                    <span id="page-info">第 1 頁</span>
+                    <button class="btn" id="page-next">下一頁</button>
+                </div>
+            </section>
+
+            <!-- Section 5: Sector Heatmap -->
+            <section class="glass-panel heatmap-section">
+                <div class="section-header">
+                    <h2>類股熱力圖 (Sector Heatmap)</h2>
+                </div>
+                <div class="heatmap-container" id="heatmap-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>免責聲明：本網站提供的資訊僅供參考，不構成任何投資建議。投資有風險，入市須謹慎。</p>
+            <p>Data Source: JARVIS SELECT Mock Data</p>
+        </footer>
+    </div>
+    
+    <script src="app.js?v=3"></script>
+</body>
+</html>
