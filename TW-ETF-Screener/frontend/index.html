@@ -8,6 +8,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css?v=20260813">
+    <style id="gate-style">
+        #access-gate { display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:linear-gradient(135deg,#0f1923,#1a2a3a); z-index:99999; 
+            justify-content:center; align-items:center; flex-direction:column; font-family:Inter,sans-serif; color:#e0e8f0; }
+        #access-gate h1 { font-size:2em; margin-bottom:0.5em; }
+        #access-gate p { font-size:1.1em; color:#8899aa; max-width:400px; text-align:center; line-height:1.6; }
+        #access-gate .icon { font-size:4em; margin-bottom:0.3em; }
+    </style>
+    <script>
+    (function(){
+        var SECRET='howard7199_screener_2024_antigravity';
+        var p=new URLSearchParams(window.location.search);
+        var tk=p.get('token'), ex=p.get('expires');
+        if(!tk||ex===null){showGate();return;}
+        var exNum=parseInt(ex);
+        if(exNum!==0 && Date.now()/1000>exNum){showGate('expired');return;}
+        crypto.subtle.digest('SHA-256',new TextEncoder().encode(SECRET+ex)).then(function(buf){
+            var h=Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+            if(h.substring(0,16)!==tk){showGate();}
+            else{document.documentElement.style.visibility='visible';}
+        });
+        document.documentElement.style.visibility='hidden';
+        function showGate(type){
+            document.addEventListener('DOMContentLoaded',function(){
+                document.documentElement.style.visibility='visible';
+                document.body.innerHTML='<div id="access-gate" style="display:flex">'
+                    +'<div class="icon">'+(type==='expired'?'⏰':'🔒')+'</div>'
+                    +'<h1>'+(type==='expired'?'連結已過期':'需要存取權限')+'</h1>'
+                    +'<p>'+(type==='expired'
+                        ?'此連結已超過有效期限。<br>請回到 LINE 對話框輸入<br><b>「篩選器」</b>取得新的連結。'
+                        :'此篩選器僅限授權用戶使用。<br>請在 LINE 對話框輸入<br><b>「篩選器」</b>取得專屬連結。')
+                    +'</p></div>';
+            });
+        }
+    })();
+    </script>
 </head>
 <body>
     <div class="app-container">
