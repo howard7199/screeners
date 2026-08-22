@@ -1,0 +1,81 @@
+{
+  "updated_at": "2026-08-20T20:08:46",
+  "daily": {
+    "temperature": 36.03,
+    "label": "偏冷",
+    "components": {
+      "army_alignment": {
+        "value": 20.07,
+        "weight": 25,
+        "detail": "多方 449 | 糾結 1132 | 空方 656"
+      },
+      "above_ma": {
+        "value": 28.39,
+        "weight": 25,
+        "detail": "前鋒 453 | 中軍 570 | 後衛 882"
+      },
+      "macd_positive": {
+        "value": 17.61,
+        "weight": 15,
+        "detail": "柱狀圖為正 394/2237"
+      },
+      "volatility_inverse": {
+        "value": 65.0,
+        "weight": 15,
+        "detail": "波動率 15.00"
+      },
+      "turtle_net": {
+        "value": 50.2,
+        "weight": 10,
+        "detail": "突破 43 | 破低 34"
+      },
+      "institutional_sentiment": {
+        "value": 65.0,
+        "weight": 10,
+        "detail": "法人買賣比 0.50"
+      }
+    }
+  },
+  "1h": {
+    "temperature": 43.84,
+    "label": "中性",
+    "components": {
+      "army_alignment": {
+        "value": 6.32,
+        "weight": 25,
+        "detail": "多方 141 | 糾結 518 | 空方 1572"
+      },
+      "above_ma": {
+        "value": 33.99,
+        "weight": 25,
+        "detail": "前鋒 1387 | 中軍 485 | 後衛 403"
+      },
+      "macd_positive": {
+        "value": 83.28,
+        "weight": 15,
+        "detail": "柱狀圖為正 1858/2231"
+      },
+      "volatility_inverse": {
+        "value": 65.0,
+        "weight": 15,
+        "detail": "波動率 15.00"
+      },
+      "turtle_net": {
+        "value": 50.18,
+        "weight": 10,
+        "detail": "突破 28 | 破低 20"
+      },
+      "institutional_sentiment": {
+        "value": 65.0,
+        "weight": 10,
+        "detail": "法人買賣比 0.50"
+      }
+    }
+  },
+  "market_data": {
+    "taiex_close": 0,
+    "taiex_change_pct": 0,
+    "volatility_20d": 15.0,
+    "institutional_sentiment": 0.5
+  }
+}
