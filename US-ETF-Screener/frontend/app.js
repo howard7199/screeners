@@ -88,7 +88,7 @@ const categoryMap = {
     'Equity': '股票指數型', 'Bond': '債券型', 'Commodity': '商品型',
     'Real Estate': '不動產型', 'Sector': '產業型', 'International': '國際型',
     'Dividend': '配息型', 'Leveraged': '槓桿型', 'Thematic': '主題型',
-    'Other': '其他'
+    'Strategy': '策略型', 'Other': '其他'
 };
 const toZhCategory = (cat) => categoryMap[cat] || cat || '--';
 
@@ -250,7 +250,7 @@ function populateSelectors() {
     if (catSelect) {
         const dataCats = [...new Set(appState.screenerData.etfs.map(e => e?.category))].filter(Boolean);
         // Preferred display order
-        const catOrder = ['Equity','Bond','Sector','International','Dividend','Leveraged','Commodity','Real Estate','Thematic','Other'];
+        const catOrder = ['Equity','Bond','Sector','International','Dividend','Leveraged','Strategy','Commodity','Real Estate','Thematic','Other'];
         const orderedCats = catOrder.filter(c => dataCats.includes(c));
         // Add any remaining categories not in our order
         dataCats.forEach(c => { if (!orderedCats.includes(c)) orderedCats.push(c); });
