@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-08-20T20:08:46",
+  "updated_at": "2026-08-26T15:44:43",
   "daily": {
-    "temperature": 36.03,
-    "label": "偏冷",
+    "temperature": 50.01,
+    "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 20.07,
+        "value": 18.88,
         "weight": 25,
-        "detail": "多方 449 | 糾結 1132 | 空方 656"
+        "detail": "多方 423 | 糾結 1038 | 空方 779"
       },
       "above_ma": {
-        "value": 28.39,
+        "value": 52.62,
         "weight": 25,
-        "detail": "前鋒 453 | 中軍 570 | 後衛 882"
+        "detail": "前鋒 1467 | 中軍 929 | 後衛 1140"
       },
       "macd_positive": {
-        "value": 17.61,
+        "value": 70.58,
         "weight": 15,
-        "detail": "柱狀圖為正 394/2237"
+        "detail": "柱狀圖為正 1581/2240"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -25,9 +25,9 @@
         "detail": "波動率 15.00"
       },
       "turtle_net": {
-        "value": 50.2,
+        "value": 52.99,
         "weight": 10,
-        "detail": "突破 43 | 破低 34"
+        "detail": "突破 149 | 破低 15"
       },
       "institutional_sentiment": {
         "value": 65.0,
@@ -37,23 +37,23 @@
     }
   },
   "1h": {
-    "temperature": 43.84,
+    "temperature": 49.78,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 6.32,
+        "value": 18.75,
         "weight": 25,
-        "detail": "多方 141 | 糾結 518 | 空方 1572"
+        "detail": "多方 419 | 糾結 835 | 空方 981"
       },
       "above_ma": {
-        "value": 33.99,
+        "value": 53.75,
         "weight": 25,
-        "detail": "前鋒 1387 | 中軍 485 | 後衛 403"
+        "detail": "前鋒 1500 | 中軍 1269 | 後衛 835"
       },
       "macd_positive": {
-        "value": 83.28,
+        "value": 68.46,
         "weight": 15,
-        "detail": "柱狀圖為正 1858/2231"
+        "detail": "柱狀圖為正 1530/2235"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -61,9 +61,9 @@
         "detail": "波動率 15.00"
       },
       "turtle_net": {
-        "value": 50.18,
+        "value": 51.36,
         "weight": 10,
-        "detail": "突破 28 | 破低 20"
+        "detail": "突破 74 | 破低 13"
       },
       "institutional_sentiment": {
         "value": 65.0,
