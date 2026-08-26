@@ -85,8 +85,8 @@ const formatAUM = (num) => {
 
 // Category mapping: English -> Chinese
 const categoryMap = {
-    'Equity': '股票型', 'Bond': '債券型', 'Commodity': '商品型',
-    'Real Estate': '不動產', 'Sector': '產業型', 'International': '國際型',
+    'Equity': '股票指數型', 'Bond': '債券型', 'Commodity': '商品型',
+    'Real Estate': '不動產型', 'Sector': '產業型', 'International': '國際型',
     'Dividend': '配息型', 'Leveraged': '槓桿型', 'Thematic': '主題型',
     'Other': '其他'
 };
@@ -244,6 +244,25 @@ function updateTemperature() {
 
 function populateSelectors() {
     if (!appState.screenerData?.etfs) return;
+    
+    // Dynamically populate category dropdown from actual data
+    const catSelect = document.getElementById('filter-category');
+    if (catSelect) {
+        const dataCats = [...new Set(appState.screenerData.etfs.map(e => e?.category))].filter(Boolean);
+        // Preferred display order
+        const catOrder = ['Equity','Bond','Sector','International','Dividend','Leveraged','Commodity','Real Estate','Thematic','Other'];
+        const orderedCats = catOrder.filter(c => dataCats.includes(c));
+        // Add any remaining categories not in our order
+        dataCats.forEach(c => { if (!orderedCats.includes(c)) orderedCats.push(c); });
+        
+        catSelect.innerHTML = '<option value="All">全部</option>';
+        orderedCats.forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat;
+            opt.textContent = toZhCategory(cat);
+            catSelect.appendChild(opt);
+        });
+    }
     
     // Sub-category population
     const updateSubCategories = () => {
