@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>美股 ETF 篩選器</title>
     <meta name="description" content="美股 ETF 多因子篩選器 - 動能 x 品質 x 價值 x 成長 x 技術面 x 訊號評分">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css?v=20260827">
+    <link rel="stylesheet" id="dynamic-css">
+    <script>document.getElementById('dynamic-css').href='index.css?t='+Date.now();</script>
     <style id="gate-style">
         #access-gate { display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
             background:linear-gradient(135deg,#0f1923,#1a2a3a); z-index:99999; 
@@ -259,6 +263,6 @@
         </footer>
     </div>
     
-    <script src="app.js?v=20260827"></script>
+    <script>document.write('<scr'+'ipt src="app.js?t='+Date.now()+'"></scr'+'ipt>');</script>
 </body>
 </html>
