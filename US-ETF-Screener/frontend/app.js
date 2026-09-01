@@ -126,47 +126,50 @@ const toZhTempLabel = (l) => tempLabelMap[l] || l || '--';
 
 const getNestedValue = (obj, path) => path.split('.').reduce((acc, part) => (acc != null ? acc[part] : undefined), obj);
 
+// Fetch with retry
+async function fetchWithRetry(url, maxRetries = 3) {
+    for (let i = 0; i < maxRetries; i++) {
+        try {
+            const t = Date.now();
+            const sep = url.includes('?') ? '&' : '?';
+            const res = await fetch(url + sep + '_t=' + t, {cache: 'no-store'});
+            if (res.ok) return await res.json();
+        } catch (e) {
+            console.warn(`Fetch attempt ${i+1} failed for ${url}:`, e);
+        }
+        if (i < maxRetries - 1) await new Promise(r => setTimeout(r, 2000));
+    }
+    return null;
+}
+
 // Initialization
 async function init() {
-    try {
-        const t = Date.now();
-        const [screenerRes, tempRes] = await Promise.all([
-            fetch(`../backend/output/etf_screener.json?t=${t}`),
-            fetch(`../backend/output/etf_temperature.json?t=${t}`)
-        ]);
-        
-        if(screenerRes.ok) {
-            appState.screenerData = await screenerRes.json();
-        } else {
-            console.error('Failed to load etf_screener.json, creating mock data...');
-            appState.screenerData = generateMockData();
-        }
+    // Show loading state
+    const countEl = document.getElementById('etf-count');
+    if (countEl) countEl.textContent = '...';
 
-        if(tempRes.ok) {
-            appState.temperatureData = await tempRes.json();
-        } else {
-            console.error('Failed to load etf_temperature.json, creating mock data...');
-            appState.temperatureData = generateMockTemp();
-        }
-        
-        setupEventListeners();
-        populateSelectors();
-        
-        // Initial render
-        updateHeader();
-        updateTemperature();
-        applyFilters();
-    } catch (e) {
-        console.error('Error during init:', e);
-        // Fallback to mock data
+    const screenerData = await fetchWithRetry('../backend/output/etf_screener.json');
+    const tempData = await fetchWithRetry('../backend/output/etf_temperature.json');
+
+    if (screenerData && screenerData.etfs && screenerData.etfs.length > 0) {
+        appState.screenerData = screenerData;
+    } else {
+        // Last resort fallback
+        console.error('All fetch attempts failed, using fallback');
         appState.screenerData = generateMockData();
-        appState.temperatureData = generateMockTemp();
-        setupEventListeners();
-        populateSelectors();
-        updateHeader();
-        updateTemperature();
-        applyFilters();
     }
+
+    if (tempData) {
+        appState.temperatureData = tempData;
+    } else {
+        appState.temperatureData = generateMockTemp();
+    }
+
+    setupEventListeners();
+    populateSelectors();
+    updateHeader();
+    updateTemperature();
+    applyFilters();
 }
 
 function updateHeader() {
