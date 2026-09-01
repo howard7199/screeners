@@ -262,6 +262,16 @@
         </footer>
     </div>
     
-    <script src="app.js?v=20260901"></script>
+    <script src="app.js?_v=r2x9k7m3"></script>
+    <script>
+    // Self-healing: if mock data detected after 15 seconds, force reload everything
+    setTimeout(function(){
+        var countEl = document.getElementById('etf-count');
+        if(countEl && (countEl.textContent === '258' || countEl.textContent === '...')){
+            // Data didn't load - force hard reload bypassing all caches
+            window.location.reload(true);
+        }
+    }, 15000);
+    </script>
 </body>
 </html>
