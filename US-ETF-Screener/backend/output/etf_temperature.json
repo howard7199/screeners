@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-07T06:09:41",
+  "updated_at": "2026-09-08T06:09:47",
   "daily": {
-    "temperature": 57.7,
+    "temperature": 53.95,
     "label": "中性",
     "components": {
       "above_ma": {
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 77.5,
+        "value": 58.75,
         "weight": 20,
-        "detail": "買賣權比率 0.7"
+        "detail": "買賣權比率 0.85"
       }
     }
   },
   "1h": {
-    "temperature": 65.23,
+    "temperature": 60.99,
     "label": "偏熱",
     "components": {
       "above_ma": {
-        "value": 60.86,
+        "value": 60.24,
         "weight": 25,
-        "detail": ">20: 2939 | >60: 2286 | >240: 2597"
+        "detail": ">20: 2875 | >60: 2268 | >240: 2599"
       },
       "macd_positive": {
-        "value": 68.21,
+        "value": 66.57,
         "weight": 20,
-        "detail": "MACD+ 2922/4284"
+        "detail": "MACD+ 2852/4284"
       },
       "turtle_net": {
-        "value": 52.51,
+        "value": 52.43,
         "weight": 15,
-        "detail": "突破 302 | 破低 87"
+        "detail": "突破 294 | 破低 86"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 77.5,
+        "value": 58.75,
         "weight": 20,
-        "detail": "買賣權比率 0.7"
+        "detail": "買賣權比率 0.85"
       }
     }
   }
