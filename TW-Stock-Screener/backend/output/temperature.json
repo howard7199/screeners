@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-09-07T15:39:20",
+  "updated_at": "2026-09-08T15:39:25",
   "daily": {
-    "temperature": 47.19,
+    "temperature": 45.5,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 24.78,
+        "value": 25.18,
         "weight": 25,
-        "detail": "多方 555 | 糾結 970 | 空方 715"
+        "detail": "多方 564 | 糾結 953 | 空方 723"
       },
       "above_ma": {
-        "value": 45.92,
+        "value": 42.13,
         "weight": 25,
-        "detail": "前鋒 1028 | 中軍 943 | 後衛 1115"
+        "detail": "前鋒 853 | 中軍 892 | 後衛 1086"
       },
       "macd_positive": {
-        "value": 55.09,
+        "value": 50.71,
         "weight": 15,
-        "detail": "柱狀圖為正 1234/2240"
+        "detail": "柱狀圖為正 1136/2240"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -25,9 +25,9 @@
         "detail": "波動率 15.00"
       },
       "turtle_net": {
-        "value": 50.02,
+        "value": 48.19,
         "weight": 10,
-        "detail": "突破 83 | 破低 82"
+        "detail": "突破 76 | 破低 157"
       },
       "institutional_sentiment": {
         "value": 65.0,
@@ -37,23 +37,23 @@
     }
   },
   "1h": {
-    "temperature": 44.59,
+    "temperature": 40.95,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 21.01,
+        "value": 19.96,
         "weight": 25,
-        "detail": "多方 469 | 糾結 853 | 空方 910"
+        "detail": "多方 445 | 糾結 826 | 空方 959"
       },
       "above_ma": {
-        "value": 41.85,
+        "value": 35.55,
         "weight": 25,
-        "detail": "前鋒 978 | 中軍 943 | 後衛 881"
+        "detail": "前鋒 770 | 中軍 763 | 後衛 845"
       },
       "macd_positive": {
-        "value": 50.94,
+        "value": 40.4,
         "weight": 15,
-        "detail": "柱狀圖為正 1137/2232"
+        "detail": "柱狀圖為正 901/2230"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -61,9 +61,9 @@
         "detail": "波動率 15.00"
       },
       "turtle_net": {
-        "value": 49.89,
+        "value": 47.69,
         "weight": 10,
-        "detail": "突破 39 | 破低 44"
+        "detail": "突破 25 | 破低 128"
       },
       "institutional_sentiment": {
         "value": 65.0,
@@ -73,9 +73,9 @@
     }
   },
   "market_data": {
-    "taiex_close": 47326.27,
-    "taiex_change_pct": 1.67,
-    "volatility_20d": 16.74,
+    "taiex_close": 47105.78,
+    "taiex_change_pct": -0.47,
+    "volatility_20d": 16.92,
     "institutional_sentiment": 0.5
   }
 }
