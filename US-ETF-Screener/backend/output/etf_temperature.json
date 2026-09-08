@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-09-08T06:09:47",
+  "updated_at": "2026-09-09T06:10:15",
   "daily": {
-    "temperature": 53.95,
+    "temperature": 56.01,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 67.34,
+        "value": 61.78,
         "weight": 25,
-        "detail": ">20: 2345 | >60: 3112 | >240: 3452"
+        "detail": ">20: 1818 | >60: 2939 | >240: 3430"
       },
       "macd_positive": {
-        "value": 22.61,
+        "value": 23.93,
         "weight": 20,
-        "detail": "MACD+ 997/4410"
+        "detail": "MACD+ 1057/4417"
       },
       "turtle_net": {
-        "value": 52.29,
+        "value": 48.51,
         "weight": 15,
-        "detail": "突破 255 | 破低 53"
+        "detail": "突破 192 | 破低 324"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 58.75,
+        "value": 77.5,
         "weight": 20,
-        "detail": "買賣權比率 0.85"
+        "detail": "買賣權比率 0.7"
       }
     }
   },
   "1h": {
-    "temperature": 60.99,
-    "label": "偏熱",
+    "temperature": 55.31,
+    "label": "中性",
     "components": {
       "above_ma": {
-        "value": 60.24,
+        "value": 45.3,
         "weight": 25,
-        "detail": ">20: 2875 | >60: 2268 | >240: 2599"
+        "detail": ">20: 1573 | >60: 1815 | >240: 2435"
       },
       "macd_positive": {
-        "value": 66.57,
+        "value": 43.69,
         "weight": 20,
-        "detail": "MACD+ 2852/4284"
+        "detail": "MACD+ 1872/4285"
       },
       "turtle_net": {
-        "value": 52.43,
+        "value": 44.98,
         "weight": 15,
-        "detail": "突破 294 | 破低 86"
+        "detail": "突破 61 | 破低 491"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 58.75,
+        "value": 77.5,
         "weight": 20,
-        "detail": "買賣權比率 0.85"
+        "detail": "買賣權比率 0.7"
       }
     }
   }
