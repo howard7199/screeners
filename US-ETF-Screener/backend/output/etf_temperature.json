@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-09-09T06:10:15",
+  "updated_at": "2026-09-10T06:10:14",
   "daily": {
-    "temperature": 56.01,
+    "temperature": 49.05,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 61.78,
+        "value": 55.7,
         "weight": 25,
-        "detail": ">20: 1818 | >60: 2939 | >240: 3430"
+        "detail": ">20: 1376 | >60: 2647 | >240: 3371"
       },
       "macd_positive": {
-        "value": 23.93,
+        "value": 22.21,
         "weight": 20,
-        "detail": "MACD+ 1057/4417"
+        "detail": "MACD+ 983/4425"
       },
       "turtle_net": {
-        "value": 48.51,
+        "value": 39.57,
         "weight": 15,
-        "detail": "突破 192 | 破低 324"
+        "detail": "突破 125 | 破低 1048"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 77.5,
+        "value": 58.75,
         "weight": 20,
-        "detail": "買賣權比率 0.7"
+        "detail": "買賣權比率 0.85"
       }
     }
   },
   "1h": {
-    "temperature": 55.31,
+    "temperature": 44.0,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 45.3,
+        "value": 34.39,
         "weight": 25,
-        "detail": ">20: 1573 | >60: 1815 | >240: 2435"
+        "detail": ">20: 961 | >60: 1376 | >240: 2087"
       },
       "macd_positive": {
-        "value": 43.69,
+        "value": 20.48,
         "weight": 20,
-        "detail": "MACD+ 1872/4285"
+        "detail": "MACD+ 878/4288"
       },
       "turtle_net": {
-        "value": 44.98,
+        "value": 43.69,
         "weight": 15,
-        "detail": "突破 61 | 破低 491"
+        "detail": "突破 52 | 破低 593"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 77.5,
+        "value": 58.75,
         "weight": 20,
-        "detail": "買賣權比率 0.7"
+        "detail": "買賣權比率 0.85"
       }
     }
   }
