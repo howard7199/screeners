@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T05:08:19",
+  "updated_at": "2026-09-18T06:09:41",
   "daily": {
     "temperature": 46.68,
     "label": "中性",
@@ -38,12 +38,12 @@
       "above_ma": {
         "value": 45.04,
         "weight": 25,
-        "detail": ">20: 2670 | >60: 1351 | >240: 1669"
+        "detail": ">20: 2671 | >60: 1351 | >240: 1669"
       },
       "macd_positive": {
         "value": 72.79,
         "weight": 20,
-        "detail": "MACD+ 3065/4211"
+        "detail": "MACD+ 3066/4212"
       },
       "turtle_net": {
         "value": 50.81,
