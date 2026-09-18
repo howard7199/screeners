@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-19T01:10:17",
+  "updated_at": "2026-09-19T02:09:37",
   "daily": {
-    "temperature": 41.31,
+    "temperature": 41.43,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -10,14 +10,14 @@
         "detail": "多方 168 · 糾結 255 · 空方 77"
       },
       "above_ma": {
-        "value": 35.8,
+        "value": 36.33,
         "weight": 25,
-        "detail": "前鋒 94 · 中軍 164 · 後衛 279"
+        "detail": "前鋒 101 · 中軍 162 · 後衛 282"
       },
       "macd_positive": {
-        "value": 23.0,
+        "value": 22.8,
         "weight": 15,
-        "detail": "柱狀圖為正 115/500"
+        "detail": "柱狀圖為正 114/500"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,9 +25,9 @@
         "detail": "VIX 20.00"
       },
       "turtle_net": {
-        "value": 42.6,
+        "value": 42.8,
         "weight": 10,
-        "detail": "突破 0 · 破低 74"
+        "detail": "突破 1 · 破低 73"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,23 +37,23 @@
     }
   },
   "1h": {
-    "temperature": 37.05,
+    "temperature": 37.02,
     "label": "偏冷",
     "components": {
       "army_alignment": {
-        "value": 14.03,
+        "value": 13.63,
         "weight": 25,
-        "detail": "多方 70 · 糾結 136 · 空方 293"
+        "detail": "多方 68 · 糾結 141 · 空方 290"
       },
       "above_ma": {
-        "value": 25.45,
+        "value": 25.72,
         "weight": 25,
-        "detail": "前鋒 143 · 中軍 132 · 後衛 106"
+        "detail": "前鋒 142 · 中軍 134 · 後衛 109"
       },
       "macd_positive": {
-        "value": 39.88,
+        "value": 39.48,
         "weight": 15,
-        "detail": "柱狀圖為正 199/499"
+        "detail": "柱狀圖為正 197/499"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -61,9 +61,9 @@
         "detail": "VIX 20.00"
       },
       "turtle_net": {
-        "value": 49.5,
+        "value": 50.1,
         "weight": 10,
-        "detail": "突破 6 · 破低 11"
+        "detail": "突破 8 · 破低 7"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
