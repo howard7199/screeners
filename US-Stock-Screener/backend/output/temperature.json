@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-09-19T23:12:40",
+  "updated_at": "2026-09-20T00:11:19",
   "daily": {
-    "temperature": 44.54,
+    "temperature": 41.33,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 37.84,
+        "value": 33.6,
         "weight": 25,
-        "detail": "多方 14 · 糾結 18 · 空方 5"
+        "detail": "多方 168 · 糾結 254 · 空方 78"
       },
       "above_ma": {
-        "value": 39.64,
+        "value": 36.33,
         "weight": 25,
-        "detail": "前鋒 8 · 中軍 11 · 後衛 25"
+        "detail": "前鋒 98 · 中軍 167 · 後衛 280"
       },
       "macd_positive": {
-        "value": 29.73,
+        "value": 22.8,
         "weight": 15,
-        "detail": "柱狀圖為正 11/37"
+        "detail": "柱狀圖為正 114/500"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,9 +25,9 @@
         "detail": "VIX 20.00"
       },
       "turtle_net": {
-        "value": 44.59,
+        "value": 41.8,
         "weight": 10,
-        "detail": "突破 0 · 破低 4"
+        "detail": "突破 3 · 破低 85"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,23 +37,23 @@
     }
   },
   "1h": {
-    "temperature": 37.97,
+    "temperature": 37.84,
     "label": "偏冷",
     "components": {
       "army_alignment": {
-        "value": 9.68,
+        "value": 13.03,
         "weight": 25,
-        "detail": "多方 6 · 糾結 28 · 空方 28"
+        "detail": "多方 65 · 糾結 138 · 空方 296"
       },
       "above_ma": {
-        "value": 33.33,
+        "value": 26.59,
         "weight": 25,
-        "detail": "前鋒 21 · 中軍 22 · 後衛 19"
+        "detail": "前鋒 150 · 中軍 144 · 後衛 104"
       },
       "macd_positive": {
-        "value": 40.32,
+        "value": 45.69,
         "weight": 15,
-        "detail": "柱狀圖為正 25/62"
+        "detail": "柱狀圖為正 228/499"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -61,9 +61,9 @@
         "detail": "VIX 20.00"
       },
       "turtle_net": {
-        "value": 49.19,
+        "value": 48.3,
         "weight": 10,
-        "detail": "突破 4 · 破低 5"
+        "detail": "突破 23 · 破低 40"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
