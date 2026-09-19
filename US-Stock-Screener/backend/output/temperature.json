@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-09-20T04:09:17",
+  "updated_at": "2026-09-20T05:09:54",
   "daily": {
-    "temperature": 41.29,
+    "temperature": 41.33,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 33.47,
+        "value": 33.6,
         "weight": 25,
-        "detail": "多方 167 · 糾結 254 · 空方 78"
+        "detail": "多方 168 · 糾結 254 · 空方 78"
       },
       "above_ma": {
-        "value": 36.27,
+        "value": 36.33,
         "weight": 25,
-        "detail": "前鋒 98 · 中軍 166 · 後衛 279"
+        "detail": "前鋒 98 · 中軍 167 · 後衛 280"
       },
       "macd_positive": {
-        "value": 22.85,
+        "value": 22.8,
         "weight": 15,
-        "detail": "柱狀圖為正 114/499"
+        "detail": "柱狀圖為正 114/500"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,7 +25,7 @@
         "detail": "VIX 20.00"
       },
       "turtle_net": {
-        "value": 41.78,
+        "value": 41.8,
         "weight": 10,
         "detail": "突破 3 · 破低 85"
       },
@@ -37,23 +37,23 @@
     }
   },
   "1h": {
-    "temperature": 36.57,
+    "temperature": 37.84,
     "label": "偏冷",
     "components": {
       "army_alignment": {
-        "value": 12.17,
+        "value": 13.03,
         "weight": 25,
-        "detail": "多方 23 · 糾結 58 · 空方 108"
+        "detail": "多方 65 · 糾結 138 · 空方 296"
       },
       "above_ma": {
-        "value": 24.87,
+        "value": 26.59,
         "weight": 25,
-        "detail": "前鋒 48 · 中軍 55 · 後衛 38"
+        "detail": "前鋒 150 · 中軍 144 · 後衛 104"
       },
       "macd_positive": {
-        "value": 42.33,
+        "value": 45.69,
         "weight": 15,
-        "detail": "柱狀圖為正 80/189"
+        "detail": "柱狀圖為正 228/499"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -61,9 +61,9 @@
         "detail": "VIX 20.00"
       },
       "turtle_net": {
-        "value": 47.09,
+        "value": 48.3,
         "weight": 10,
-        "detail": "突破 6 · 破低 17"
+        "detail": "突破 23 · 破低 40"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
