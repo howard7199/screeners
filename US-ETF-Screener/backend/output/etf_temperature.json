@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-09-23T02:08:18",
+  "updated_at": "2026-09-23T03:07:58",
   "daily": {
-    "temperature": 59.01,
+    "temperature": 51.73,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 58.56,
+        "value": 58.81,
         "weight": 25,
-        "detail": ">20: 2003 | >60: 2351 | >240: 3220"
+        "detail": ">20: 2022 | >60: 2357 | >240: 3223"
       },
       "macd_positive": {
-        "value": 39.62,
+        "value": 40.06,
         "weight": 20,
-        "detail": "MACD+ 1708/4311"
+        "detail": "MACD+ 1726/4309"
       },
       "turtle_net": {
-        "value": 52.95,
+        "value": 53.47,
         "weight": 15,
-        "detail": "突破 438 | 破低 184"
+        "detail": "突破 504 | 破低 205"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 77.5,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 0.7"
+        "detail": "買賣權比率 1.0"
       }
     }
   },
   "1h": {
-    "temperature": 66.43,
-    "label": "偏熱",
+    "temperature": 58.85,
+    "label": "中性",
     "components": {
       "above_ma": {
-        "value": 60.08,
+        "value": 60.59,
         "weight": 25,
-        "detail": ">20: 3049 | >60: 2515 | >240: 2030"
+        "detail": ">20: 2991 | >60: 2481 | >240: 1988"
       },
       "macd_positive": {
-        "value": 74.7,
+        "value": 74.05,
         "weight": 20,
-        "detail": "MACD+ 3147/4213"
+        "detail": "MACD+ 3039/4104"
       },
       "turtle_net": {
-        "value": 53.13,
+        "value": 52.63,
         "weight": 15,
-        "detail": "突破 338 | 破低 74"
+        "detail": "突破 296 | 破低 80"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 77.5,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 0.7"
+        "detail": "買賣權比率 1.0"
       }
     }
   }
