@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-24T15:39:59",
+  "updated_at": "2026-09-28T15:39:47",
   "daily": {
-    "temperature": 48.83,
+    "temperature": 48.82,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -10,14 +10,14 @@
         "detail": "多方 649 | 糾結 842 | 空方 751"
       },
       "above_ma": {
-        "value": 46.94,
+        "value": 46.88,
         "weight": 25,
-        "detail": "前鋒 1037 | 中軍 1014 | 後衛 1106"
+        "detail": "前鋒 1035 | 中軍 1012 | 後衛 1106"
       },
       "macd_positive": {
-        "value": 57.05,
+        "value": 57.09,
         "weight": 15,
-        "detail": "柱狀圖為正 1279/2242"
+        "detail": "柱狀圖為正 1280/2242"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -25,9 +25,9 @@
         "detail": "波動率 15.00"
       },
       "turtle_net": {
-        "value": 50.54,
+        "value": 50.47,
         "weight": 10,
-        "detail": "突破 81 | 破低 57"
+        "detail": "突破 76 | 破低 55"
       },
       "institutional_sentiment": {
         "value": 65.0,
@@ -37,23 +37,23 @@
     }
   },
   "1h": {
-    "temperature": 45.73,
+    "temperature": 45.72,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 30.23,
+        "value": 30.21,
         "weight": 25,
-        "detail": "多方 673 | 糾結 941 | 空方 612"
+        "detail": "多方 671 | 糾結 939 | 空方 611"
       },
       "above_ma": {
-        "value": 46.6,
+        "value": 46.59,
         "weight": 25,
-        "detail": "前鋒 914 | 中軍 1177 | 後衛 1021"
+        "detail": "前鋒 911 | 中軍 1174 | 後衛 1019"
       },
       "macd_positive": {
-        "value": 35.27,
+        "value": 35.25,
         "weight": 15,
-        "detail": "柱狀圖為正 785/2226"
+        "detail": "柱狀圖為正 783/2221"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -75,7 +75,7 @@
   "market_data": {
     "taiex_close": 48024.6,
     "taiex_change_pct": -0.28,
-    "volatility_20d": 17.38,
+    "volatility_20d": 17.3,
     "institutional_sentiment": 0.5
   }
 }
