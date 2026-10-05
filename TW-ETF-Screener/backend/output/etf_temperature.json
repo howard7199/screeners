@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-20T20:10:43",
+  "updated_at": "2026-10-05T21:54:17",
   "daily": {
     "temperature": 60.84,
     "label": "偏熱",
@@ -17,7 +17,7 @@
       "institutional_net": {
         "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 542,963,275 股"
+        "detail": "法人淨買超 1,031,265,207 股"
       },
       "yield_percentile_inverse": {
         "value": 70.76,
@@ -53,7 +53,7 @@
       "institutional_net": {
         "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 542,963,275 股"
+        "detail": "法人淨買超 1,031,265,207 股"
       },
       "yield_percentile_inverse": {
         "value": 70.76,
