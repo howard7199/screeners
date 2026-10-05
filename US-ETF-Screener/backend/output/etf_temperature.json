@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-10-05T23:10:13",
+  "updated_at": "2026-10-05T23:51:23",
   "daily": {
-    "temperature": 49.63,
+    "temperature": 53.41,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 50.95,
+        "value": 51.06,
         "weight": 25,
-        "detail": ">20: 1904 | >60: 1874 | >240: 2917"
+        "detail": ">20: 1928 | >60: 1883 | >240: 2929"
       },
       "macd_positive": {
-        "value": 40.21,
+        "value": 40.0,
         "weight": 20,
-        "detail": "MACD+ 1761/4380"
+        "detail": "MACD+ 1760/4400"
       },
       "turtle_net": {
-        "value": 52.33,
+        "value": 52.6,
         "weight": 15,
-        "detail": "突破 273 | 破低 69"
+        "detail": "突破 297 | 破低 68"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 58.75,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 0.85"
       }
     }
   },
   "1h": {
-    "temperature": 57.36,
-    "label": "中性",
+    "temperature": 60.93,
+    "label": "偏熱",
     "components": {
       "above_ma": {
-        "value": 50.59,
+        "value": 50.37,
         "weight": 25,
-        "detail": ">20: 2817 | >60: 2035 | >240: 1721"
+        "detail": ">20: 2799 | >60: 2049 | >240: 1743"
       },
       "macd_positive": {
-        "value": 78.32,
+        "value": 77.76,
         "weight": 20,
-        "detail": "MACD+ 3392/4331"
+        "detail": "MACD+ 3392/4362"
       },
       "turtle_net": {
-        "value": 53.64,
+        "value": 53.6,
         "weight": 15,
-        "detail": "突破 399 | 破低 84"
+        "detail": "突破 410 | 破低 96"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 58.75,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 0.85"
       }
     }
   }
