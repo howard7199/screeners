@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-07T05:07:15",
+  "updated_at": "2026-10-07T06:02:16",
   "daily": {
     "temperature": 47.79,
     "label": "中性",
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 51.36,
+    "temperature": 51.41,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -51,9 +51,9 @@
         "detail": "前鋒 358 · 中軍 309 · 後衛 152"
       },
       "macd_positive": {
-        "value": 65.4,
+        "value": 65.8,
         "weight": 15,
-        "detail": "柱狀圖為正 327/500"
+        "detail": "柱狀圖為正 329/500"
       },
       "vix_inverse": {
         "value": 77.47,
@@ -61,9 +61,9 @@
         "detail": "VIX 15.01"
       },
       "turtle_net": {
-        "value": 53.3,
+        "value": 53.2,
         "weight": 10,
-        "detail": "突破 38 · 破低 5"
+        "detail": "突破 37 · 破低 5"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
