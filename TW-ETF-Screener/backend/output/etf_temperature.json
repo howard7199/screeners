@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-05T23:07:45",
+  "updated_at": "2026-10-06T15:42:36",
   "daily": {
-    "temperature": 62.24,
+    "temperature": 62.04,
     "label": "偏熱",
     "components": {
       "premium_distribution": {
@@ -10,14 +10,14 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 49.17,
+        "value": 49.94,
         "weight": 20,
-        "detail": "站上前鋒 135 / 中軍 141 / 後衛 171"
+        "detail": "站上前鋒 141 / 中軍 142 / 後衛 171"
       },
       "institutional_net": {
         "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 1,113,186,930 股"
+        "detail": "法人淨買超 1,358,258,772 股"
       },
       "yield_percentile_inverse": {
         "value": 70.42,
@@ -25,19 +25,19 @@
         "detail": "平均殖利率位階 29.6"
       },
       "macd_positive": {
-        "value": 42.9,
+        "value": 43.89,
         "weight": 10,
-        "detail": "MACD正向 130/303"
+        "detail": "MACD正向 133/303"
       },
       "turtle_net": {
-        "value": 50.5,
+        "value": 46.04,
         "weight": 10,
-        "detail": "突破 72 / 破低 69"
+        "detail": "突破 68 / 破低 92"
       }
     }
   },
   "1h": {
-    "temperature": 63.58,
+    "temperature": 64.74,
     "label": "偏熱",
     "components": {
       "premium_distribution": {
@@ -46,14 +46,14 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 45.91,
+        "value": 48.9,
         "weight": 20,
-        "detail": "站上前鋒 141 / 中軍 147 / 後衛 150"
+        "detail": "站上前鋒 166 / 中軍 149 / 後衛 153"
       },
       "institutional_net": {
         "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 1,113,186,930 股"
+        "detail": "法人淨買超 1,358,258,772 股"
       },
       "yield_percentile_inverse": {
         "value": 70.42,
@@ -61,14 +61,14 @@
         "detail": "平均殖利率位階 29.6"
       },
       "macd_positive": {
-        "value": 65.41,
+        "value": 69.28,
         "weight": 10,
-        "detail": "MACD正向 208/318"
+        "detail": "MACD正向 221/319"
       },
       "turtle_net": {
-        "value": 47.96,
+        "value": 49.69,
         "weight": 10,
-        "detail": "突破 4 / 破低 17"
+        "detail": "突破 14 / 破低 16"
       }
     }
   }
