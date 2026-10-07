@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-10-08T05:07:59",
+  "updated_at": "2026-10-08T06:02:15",
   "daily": {
-    "temperature": 46.64,
+    "temperature": 46.62,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 22.8,
+        "value": 22.69,
         "weight": 25,
-        "detail": "多方 114 · 糾結 257 · 空方 129"
+        "detail": "多方 113 · 糾結 256 · 空方 129"
       },
       "above_ma": {
-        "value": 39.87,
+        "value": 39.89,
         "weight": 25,
-        "detail": "前鋒 190 · 中軍 155 · 後衛 253"
+        "detail": "前鋒 190 · 中軍 154 · 後衛 252"
       },
       "macd_positive": {
-        "value": 54.2,
+        "value": 54.22,
         "weight": 15,
-        "detail": "柱狀圖為正 271/500"
+        "detail": "柱狀圖為正 270/498"
       },
       "vix_inverse": {
         "value": 77.3,
@@ -25,7 +25,7 @@
         "detail": "VIX 15.08"
       },
       "turtle_net": {
-        "value": 47.5,
+        "value": 47.49,
         "weight": 10,
         "detail": "突破 13 · 破低 38"
       },
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 42.67,
+    "temperature": 42.68,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -46,9 +46,9 @@
         "detail": "多方 103 · 糾結 218 · 空方 179"
       },
       "above_ma": {
-        "value": 38.0,
+        "value": 38.07,
         "weight": 25,
-        "detail": "前鋒 188 · 中軍 243 · 後衛 139"
+        "detail": "前鋒 189 · 中軍 243 · 後衛 139"
       },
       "macd_positive": {
         "value": 33.8,
