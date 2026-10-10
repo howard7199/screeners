@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T06:02:14",
+  "updated_at": "2026-10-10T22:10:49",
   "daily": {
     "temperature": 51.93,
     "label": "中性",
@@ -63,7 +63,7 @@
       "turtle_net": {
         "value": 51.7,
         "weight": 10,
-        "detail": "突破 22 · 破低 5"
+        "detail": "突破 23 · 破低 6"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
