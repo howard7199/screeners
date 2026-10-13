@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T04:08:33",
+  "updated_at": "2026-10-14T05:08:23",
   "daily": {
     "temperature": 53.5,
     "label": "中性",
@@ -10,9 +10,9 @@
         "detail": "多方 112 · 糾結 249 · 空方 139"
       },
       "above_ma": {
-        "value": 52.67,
+        "value": 52.6,
         "weight": 25,
-        "detail": "前鋒 307 · 中軍 199 · 後衛 284"
+        "detail": "前鋒 307 · 中軍 199 · 後衛 283"
       },
       "macd_positive": {
         "value": 75.8,
@@ -20,14 +20,14 @@
         "detail": "柱狀圖為正 379/500"
       },
       "vix_inverse": {
-        "value": 76.72,
+        "value": 76.82,
         "weight": 15,
-        "detail": "VIX 15.31"
+        "detail": "VIX 15.27"
       },
       "turtle_net": {
-        "value": 53.5,
+        "value": 53.6,
         "weight": 10,
-        "detail": "突破 51 · 破低 16"
+        "detail": "突破 51 · 破低 15"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 49.94,
+    "temperature": 49.98,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -51,14 +51,14 @@
         "detail": "前鋒 297 · 中軍 339 · 後衛 220"
       },
       "macd_positive": {
-        "value": 47.2,
+        "value": 47.4,
         "weight": 15,
-        "detail": "柱狀圖為正 236/500"
+        "detail": "柱狀圖為正 237/500"
       },
       "vix_inverse": {
-        "value": 76.72,
+        "value": 76.82,
         "weight": 15,
-        "detail": "VIX 15.31"
+        "detail": "VIX 15.27"
       },
       "turtle_net": {
         "value": 51.3,
@@ -73,8 +73,8 @@
     }
   },
   "market_data": {
-    "vix_value": 15.3100004196167,
-    "vix_change_pct": 0.6574647022940413,
+    "vix_value": 15.270000457763672,
+    "vix_change_pct": 0.39448007538604213,
     "pc_ratio": 0.8
   }
 }
