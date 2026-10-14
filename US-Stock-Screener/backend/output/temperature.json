@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T05:08:47",
+  "updated_at": "2026-10-15T06:02:28",
   "daily": {
     "temperature": 52.31,
     "label": "中性",
@@ -46,14 +46,14 @@
         "detail": "多方 120 · 糾結 267 · 空方 114"
       },
       "above_ma": {
-        "value": 53.56,
+        "value": 53.49,
         "weight": 25,
-        "detail": "前鋒 277 · 中軍 308 · 後衛 220"
+        "detail": "前鋒 276 · 中軍 308 · 後衛 220"
       },
       "macd_positive": {
-        "value": 41.52,
+        "value": 41.72,
         "weight": 15,
-        "detail": "柱狀圖為正 208/501"
+        "detail": "柱狀圖為正 209/501"
       },
       "vix_inverse": {
         "value": 72.82,
@@ -61,9 +61,9 @@
         "detail": "VIX 16.87"
       },
       "turtle_net": {
-        "value": 54.09,
+        "value": 53.99,
         "weight": 10,
-        "detail": "突破 48 · 破低 7"
+        "detail": "突破 47 · 破低 7"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
