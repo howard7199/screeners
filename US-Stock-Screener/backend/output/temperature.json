@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-10-18T05:08:04",
+  "updated_at": "2026-10-19T06:02:17",
   "daily": {
-    "temperature": 53.35,
+    "temperature": 53.4,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 24.15,
+        "value": 24.35,
         "weight": 25,
-        "detail": "多方 121 · 糾結 237 · 空方 143"
+        "detail": "多方 122 · 糾結 236 · 空方 143"
       },
       "above_ma": {
         "value": 57.35,
