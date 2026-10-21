@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-09T15:44:30",
+  "updated_at": "2026-10-21T15:43:15",
   "daily": {
-    "temperature": 65.39,
-    "label": "偏熱",
+    "temperature": 45.01,
+    "label": "中性",
     "components": {
       "premium_distribution": {
         "value": 50.0,
@@ -10,35 +10,35 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 51.27,
+        "value": 57.16,
         "weight": 20,
-        "detail": "站上前鋒 150 / 中軍 144 / 後衛 172"
+        "detail": "站上前鋒 173 / 中軍 178 / 後衛 172"
       },
       "institutional_net": {
-        "value": 100,
+        "value": 0,
         "weight": 20,
-        "detail": "法人淨買超 444,001,621 股"
+        "detail": "法人淨買超 -1,397,981,329 股"
       },
       "yield_percentile_inverse": {
-        "value": 85.56,
+        "value": 70.11,
         "weight": 15,
-        "detail": "平均殖利率位階 14.4"
+        "detail": "平均殖利率位階 29.9"
       },
       "macd_positive": {
-        "value": 44.55,
+        "value": 54.43,
         "weight": 10,
-        "detail": "MACD正向 135/303"
+        "detail": "MACD正向 166/305"
       },
       "turtle_net": {
-        "value": 53.47,
+        "value": 51.15,
         "weight": 10,
-        "detail": "突破 29 / 破低 8"
+        "detail": "突破 13 / 破低 6"
       }
     }
   },
   "1h": {
-    "temperature": 64.63,
-    "label": "偏熱",
+    "temperature": 41.18,
+    "label": "中性",
     "components": {
       "premium_distribution": {
         "value": 50.0,
@@ -46,29 +46,29 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 45.91,
+        "value": 40.52,
         "weight": 20,
-        "detail": "站上前鋒 137 / 中軍 146 / 後衛 155"
+        "detail": "站上前鋒 115 / 中軍 158 / 後衛 116"
       },
       "institutional_net": {
-        "value": 100,
+        "value": 0,
         "weight": 20,
-        "detail": "法人淨買超 444,001,621 股"
+        "detail": "法人淨買超 -1,397,981,329 股"
       },
       "yield_percentile_inverse": {
-        "value": 85.56,
+        "value": 70.11,
         "weight": 15,
-        "detail": "平均殖利率位階 14.4"
+        "detail": "平均殖利率位階 29.9"
       },
       "macd_positive": {
-        "value": 51.89,
+        "value": 50.94,
         "weight": 10,
-        "detail": "MACD正向 165/318"
+        "detail": "MACD正向 163/320"
       },
       "turtle_net": {
-        "value": 49.21,
+        "value": 49.69,
         "weight": 10,
-        "detail": "突破 3 / 破低 8"
+        "detail": "突破 4 / 破低 6"
       }
     }
   }
