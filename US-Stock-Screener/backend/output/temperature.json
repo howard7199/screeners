@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-22T04:07:09",
+  "updated_at": "2026-10-22T05:08:19",
   "daily": {
-    "temperature": 56.61,
+    "temperature": 56.58,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -12,7 +12,7 @@
       "above_ma": {
         "value": 62.87,
         "weight": 25,
-        "detail": "前鋒 371 · 中軍 268 · 後衛 306"
+        "detail": "前鋒 372 · 中軍 267 · 後衛 306"
       },
       "macd_positive": {
         "value": 76.45,
@@ -20,14 +20,14 @@
         "detail": "柱狀圖為正 383/501"
       },
       "vix_inverse": {
-        "value": 73.45,
+        "value": 73.3,
         "weight": 15,
-        "detail": "VIX 16.62"
+        "detail": "VIX 16.68"
       },
       "turtle_net": {
-        "value": 54.19,
+        "value": 54.09,
         "weight": 10,
-        "detail": "突破 50 · 破低 8"
+        "detail": "突破 49 · 破低 8"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 59.36,
+    "temperature": 59.37,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -46,9 +46,9 @@
         "detail": "多方 238 · 糾結 168 · 空方 95"
       },
       "above_ma": {
-        "value": 70.39,
+        "value": 70.59,
         "weight": 25,
-        "detail": "前鋒 355 · 中軍 374 · 後衛 329"
+        "detail": "前鋒 356 · 中軍 376 · 後衛 329"
       },
       "macd_positive": {
         "value": 47.9,
@@ -56,14 +56,14 @@
         "detail": "柱狀圖為正 240/501"
       },
       "vix_inverse": {
-        "value": 73.45,
+        "value": 73.3,
         "weight": 15,
-        "detail": "VIX 16.62"
+        "detail": "VIX 16.68"
       },
       "turtle_net": {
-        "value": 51.8,
+        "value": 51.7,
         "weight": 10,
-        "detail": "突破 21 · 破低 3"
+        "detail": "突破 20 · 破低 3"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -73,8 +73,8 @@
     }
   },
   "market_data": {
-    "vix_value": 16.6200008392334,
-    "vix_change_pct": -3.9861273714454146,
+    "vix_value": 16.68000030517578,
+    "vix_change_pct": -3.6395099953996644,
     "pc_ratio": 0.8
   }
 }
