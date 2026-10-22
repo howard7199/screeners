@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-21T15:43:15",
+  "updated_at": "2026-10-22T15:42:06",
   "daily": {
-    "temperature": 45.01,
+    "temperature": 43.97,
     "label": "中性",
     "components": {
       "premium_distribution": {
@@ -10,35 +10,35 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 57.16,
+        "value": 56.43,
         "weight": 20,
-        "detail": "站上前鋒 173 / 中軍 178 / 後衛 172"
+        "detail": "站上前鋒 168 / 中軍 173 / 後衛 177"
       },
       "institutional_net": {
         "value": 0,
         "weight": 20,
-        "detail": "法人淨買超 -1,397,981,329 股"
+        "detail": "法人淨買超 -390,741,777 股"
       },
       "yield_percentile_inverse": {
-        "value": 70.11,
+        "value": 69.97,
         "weight": 15,
-        "detail": "平均殖利率位階 29.9"
+        "detail": "平均殖利率位階 30.0"
       },
       "macd_positive": {
-        "value": 54.43,
+        "value": 50.98,
         "weight": 10,
-        "detail": "MACD正向 166/305"
+        "detail": "MACD正向 156/306"
       },
       "turtle_net": {
-        "value": 51.15,
+        "value": 45.92,
         "weight": 10,
-        "detail": "突破 13 / 破低 6"
+        "detail": "突破 42 / 破低 67"
       }
     }
   },
   "1h": {
-    "temperature": 41.18,
-    "label": "中性",
+    "temperature": 39.67,
+    "label": "偏冷",
     "components": {
       "premium_distribution": {
         "value": 50.0,
@@ -46,29 +46,29 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 40.52,
+        "value": 41.67,
         "weight": 20,
-        "detail": "站上前鋒 115 / 中軍 158 / 後衛 116"
+        "detail": "站上前鋒 129 / 中軍 151 / 後衛 120"
       },
       "institutional_net": {
         "value": 0,
         "weight": 20,
-        "detail": "法人淨買超 -1,397,981,329 股"
+        "detail": "法人淨買超 -390,741,777 股"
       },
       "yield_percentile_inverse": {
-        "value": 70.11,
+        "value": 69.97,
         "weight": 15,
-        "detail": "平均殖利率位階 29.9"
+        "detail": "平均殖利率位階 30.0"
       },
       "macd_positive": {
-        "value": 50.94,
+        "value": 42.19,
         "weight": 10,
-        "detail": "MACD正向 163/320"
+        "detail": "MACD正向 135/320"
       },
       "turtle_net": {
-        "value": 49.69,
+        "value": 41.25,
         "weight": 10,
-        "detail": "突破 4 / 破低 6"
+        "detail": "突破 20 / 破低 76"
       }
     }
   }
