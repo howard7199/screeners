@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-24T06:02:35",
+  "updated_at": "2026-10-24T22:09:08",
   "daily": {
-    "temperature": 55.21,
+    "temperature": 55.22,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -25,9 +25,9 @@
         "detail": "VIX 19.45"
       },
       "turtle_net": {
-        "value": 50.8,
+        "value": 50.9,
         "weight": 10,
-        "detail": "突破 34 · 破低 26"
+        "detail": "突破 35 · 破低 26"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,13 +37,13 @@
     }
   },
   "1h": {
-    "temperature": 55.47,
+    "temperature": 55.39,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 55.69,
+        "value": 55.49,
         "weight": 25,
-        "detail": "多方 279 · 糾結 124 · 空方 98"
+        "detail": "多方 278 · 糾結 125 · 空方 98"
       },
       "above_ma": {
         "value": 61.61,
@@ -51,9 +51,9 @@
         "detail": "前鋒 248 · 中軍 338 · 後衛 340"
       },
       "macd_positive": {
-        "value": 31.74,
+        "value": 31.54,
         "weight": 15,
-        "detail": "柱狀圖為正 159/501"
+        "detail": "柱狀圖為正 158/501"
       },
       "vix_inverse": {
         "value": 66.37,
