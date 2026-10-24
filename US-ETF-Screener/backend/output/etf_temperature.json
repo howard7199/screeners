@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-10-24T23:07:22",
+  "updated_at": "2026-10-25T00:11:26",
   "daily": {
     "temperature": 53.5,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 47.44,
+        "value": 47.45,
         "weight": 25,
-        "detail": ">20: 1967 | >60: 1535 | >240: 2835"
+        "detail": ">20: 1968 | >60: 1538 | >240: 2837"
       },
       "macd_positive": {
-        "value": 49.88,
+        "value": 49.87,
         "weight": 20,
-        "detail": "MACD+ 2221/4453"
+        "detail": "MACD+ 2222/4456"
       },
       "turtle_net": {
-        "value": 46.09,
+        "value": 46.1,
         "weight": 15,
         "detail": "突破 271 | 破低 619"
       },
