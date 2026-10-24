@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T04:06:13",
+  "updated_at": "2026-10-25T05:06:40",
   "daily": {
     "temperature": 53.5,
     "label": "中性",
@@ -32,7 +32,7 @@
     }
   },
   "1h": {
-    "temperature": 48.55,
+    "temperature": 48.54,
     "label": "中性",
     "components": {
       "above_ma": {
@@ -46,9 +46,9 @@
         "detail": "MACD+ 1605/4480"
       },
       "turtle_net": {
-        "value": 47.49,
+        "value": 47.48,
         "weight": 15,
-        "detail": "突破 87 | 破低 312"
+        "detail": "突破 87 | 破低 313"
       },
       "vix_inverse": {
         "value": 65.0,
