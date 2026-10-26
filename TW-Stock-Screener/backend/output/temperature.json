@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-10-23T15:40:36",
+  "updated_at": "2026-10-26T15:39:04",
   "daily": {
-    "temperature": 42.48,
+    "temperature": 42.5,
     "label": "中性",
     "components": {
       "army_alignment": {
-        "value": 33.48,
+        "value": 32.25,
         "weight": 25,
-        "detail": "多方 752 | 糾結 799 | 空方 695"
+        "detail": "多方 724 | 糾結 825 | 空方 696"
       },
       "above_ma": {
-        "value": 36.48,
+        "value": 36.2,
         "weight": 25,
-        "detail": "前鋒 571 | 中軍 855 | 後衛 1032"
+        "detail": "前鋒 563 | 中軍 845 | 後衛 1030"
       },
       "macd_positive": {
-        "value": 29.25,
+        "value": 27.66,
         "weight": 15,
-        "detail": "柱狀圖為正 657/2246"
+        "detail": "柱狀圖為正 621/2245"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -25,9 +25,9 @@
         "detail": "波動率 15.00"
       },
       "turtle_net": {
-        "value": 43.54,
+        "value": 49.93,
         "weight": 10,
-        "detail": "突破 46 | 破低 336"
+        "detail": "突破 0 | 破低 3"
       },
       "institutional_sentiment": {
         "value": 65.0,
@@ -37,23 +37,23 @@
     }
   },
   "1h": {
-    "temperature": 36.6,
+    "temperature": 36.61,
     "label": "偏冷",
     "components": {
       "army_alignment": {
-        "value": 15.81,
+        "value": 15.83,
         "weight": 25,
-        "detail": "多方 351 | 糾結 904 | 空方 965"
+        "detail": "多方 351 | 糾結 901 | 空方 965"
       },
       "above_ma": {
         "value": 25.71,
         "weight": 25,
-        "detail": "前鋒 515 | 中軍 478 | 後衛 719"
+        "detail": "前鋒 515 | 中軍 477 | 後衛 718"
       },
       "macd_positive": {
-        "value": 37.57,
+        "value": 37.62,
         "weight": 15,
-        "detail": "柱狀圖為正 834/2220"
+        "detail": "柱狀圖為正 834/2217"
       },
       "volatility_inverse": {
         "value": 65.0,
@@ -61,7 +61,7 @@
         "detail": "波動率 15.00"
       },
       "turtle_net": {
-        "value": 43.31,
+        "value": 43.3,
         "weight": 10,
         "detail": "突破 13 | 破低 310"
       },
