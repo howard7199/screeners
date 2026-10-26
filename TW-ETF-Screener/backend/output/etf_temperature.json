@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-23T15:43:17",
+  "updated_at": "2026-10-26T15:41:50",
   "daily": {
-    "temperature": 45.82,
+    "temperature": 44.29,
     "label": "中性",
     "components": {
       "premium_distribution": {
@@ -10,34 +10,34 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 59.91,
+        "value": 56.43,
         "weight": 20,
-        "detail": "站上前鋒 177 / 中軍 195 / 後衛 178"
+        "detail": "站上前鋒 168 / 中軍 172 / 後衛 178"
       },
       "institutional_net": {
         "value": 0,
         "weight": 20,
-        "detail": "法人淨買超 -829,629,372 股"
+        "detail": "法人淨買超 -653,284,124 股"
       },
       "yield_percentile_inverse": {
-        "value": 70.39,
+        "value": 70.25,
         "weight": 15,
-        "detail": "平均殖利率位階 29.6"
+        "detail": "平均殖利率位階 29.8"
       },
       "macd_positive": {
-        "value": 52.94,
+        "value": 49.67,
         "weight": 10,
-        "detail": "MACD正向 162/306"
+        "detail": "MACD正向 152/306"
       },
       "turtle_net": {
-        "value": 54.9,
+        "value": 50.0,
         "weight": 10,
-        "detail": "突破 39 / 破低 9"
+        "detail": "突破 0 / 破低 0"
       }
     }
   },
   "1h": {
-    "temperature": 39.71,
+    "temperature": 39.69,
     "label": "偏冷",
     "components": {
       "premium_distribution": {
@@ -53,12 +53,12 @@
       "institutional_net": {
         "value": 0,
         "weight": 20,
-        "detail": "法人淨買超 -829,629,372 股"
+        "detail": "法人淨買超 -653,284,124 股"
       },
       "yield_percentile_inverse": {
-        "value": 70.39,
+        "value": 70.25,
         "weight": 15,
-        "detail": "平均殖利率位階 29.6"
+        "detail": "平均殖利率位階 29.8"
       },
       "macd_positive": {
         "value": 42.37,
