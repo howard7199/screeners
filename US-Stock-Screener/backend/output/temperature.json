@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T04:07:37",
+  "updated_at": "2026-10-28T05:08:12",
   "daily": {
     "temperature": 57.01,
     "label": "中性",
@@ -10,9 +10,9 @@
         "detail": "多方 145 · 糾結 213 · 空方 143"
       },
       "above_ma": {
-        "value": 64.14,
+        "value": 64.2,
         "weight": 25,
-        "detail": "前鋒 367 · 中軍 279 · 後衛 318"
+        "detail": "前鋒 367 · 中軍 280 · 後衛 318"
       },
       "macd_positive": {
         "value": 74.85,
@@ -20,14 +20,14 @@
         "detail": "柱狀圖為正 375/501"
       },
       "vix_inverse": {
-        "value": 71.25,
+        "value": 71.2,
         "weight": 15,
-        "detail": "VIX 17.50"
+        "detail": "VIX 17.52"
       },
       "turtle_net": {
-        "value": 53.29,
+        "value": 53.19,
         "weight": 10,
-        "detail": "突破 40 · 破低 7"
+        "detail": "突破 39 · 破低 7"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 56.85,
+    "temperature": 56.81,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -46,9 +46,9 @@
         "detail": "多方 266 · 糾結 143 · 空方 92"
       },
       "above_ma": {
-        "value": 61.48,
+        "value": 61.41,
         "weight": 25,
-        "detail": "前鋒 259 · 中軍 316 · 後衛 349"
+        "detail": "前鋒 258 · 中軍 316 · 後衛 349"
       },
       "macd_positive": {
         "value": 38.92,
@@ -56,14 +56,14 @@
         "detail": "柱狀圖為正 195/501"
       },
       "vix_inverse": {
-        "value": 71.25,
+        "value": 71.2,
         "weight": 15,
-        "detail": "VIX 17.50"
+        "detail": "VIX 17.52"
       },
       "turtle_net": {
-        "value": 51.8,
+        "value": 51.7,
         "weight": 10,
-        "detail": "突破 29 · 破低 11"
+        "detail": "突破 29 · 破低 12"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -73,8 +73,8 @@
     }
   },
   "market_data": {
-    "vix_value": 17.5,
-    "vix_change_pct": -4.839583573610176,
+    "vix_value": 17.520000457763672,
+    "vix_change_pct": -4.730826322781065,
     "pc_ratio": 0.8
   }
 }
