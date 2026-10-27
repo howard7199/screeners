@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T05:08:12",
+  "updated_at": "2026-10-28T06:02:14",
   "daily": {
     "temperature": 57.01,
     "label": "中性",
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 56.81,
+    "temperature": 56.82,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -61,9 +61,9 @@
         "detail": "VIX 17.52"
       },
       "turtle_net": {
-        "value": 51.7,
+        "value": 51.8,
         "weight": 10,
-        "detail": "突破 29 · 破低 12"
+        "detail": "突破 30 · 破低 12"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
