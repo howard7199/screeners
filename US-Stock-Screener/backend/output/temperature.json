@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-03T06:02:24",
+  "updated_at": "2026-11-03T22:19:57",
   "daily": {
-    "temperature": 58.21,
+    "temperature": 58.31,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -10,9 +10,9 @@
         "detail": "多方 180 · 糾結 203 · 空方 118"
       },
       "above_ma": {
-        "value": 67.8,
+        "value": 67.86,
         "weight": 25,
-        "detail": "前鋒 363 · 中軍 321 · 後衛 335"
+        "detail": "前鋒 364 · 中軍 321 · 後衛 335"
       },
       "macd_positive": {
         "value": 71.66,
@@ -20,14 +20,14 @@
         "detail": "柱狀圖為正 359/501"
       },
       "vix_inverse": {
-        "value": 60.98,
+        "value": 61.43,
         "weight": 15,
-        "detail": "VIX 21.15"
+        "detail": "VIX 21.02"
       },
       "turtle_net": {
-        "value": 58.88,
+        "value": 58.98,
         "weight": 10,
-        "detail": "突破 120 · 破低 31"
+        "detail": "突破 121 · 破低 31"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 61.19,
+    "temperature": 61.31,
     "label": "偏熱",
     "components": {
       "army_alignment": {
@@ -51,19 +51,19 @@
         "detail": "前鋒 316 · 中軍 343 · 後衛 371"
       },
       "macd_positive": {
-        "value": 60.28,
+        "value": 60.48,
         "weight": 15,
-        "detail": "柱狀圖為正 302/501"
+        "detail": "柱狀圖為正 303/501"
       },
       "vix_inverse": {
-        "value": 60.98,
+        "value": 61.43,
         "weight": 15,
-        "detail": "VIX 21.15"
+        "detail": "VIX 21.02"
       },
       "turtle_net": {
-        "value": 51.0,
+        "value": 51.2,
         "weight": 10,
-        "detail": "突破 40 · 破低 30"
+        "detail": "突破 41 · 破低 29"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -73,8 +73,8 @@
     }
   },
   "market_data": {
-    "vix_value": 21.149999618530273,
-    "vix_change_pct": 8.908339523376954,
+    "vix_value": 21.020000457763672,
+    "vix_change_pct": -0.6146532534814073,
     "pc_ratio": 0.8
   }
 }
