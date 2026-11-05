@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-11-06T04:06:26",
+  "updated_at": "2026-11-06T05:06:23",
   "daily": {
-    "temperature": 47.24,
+    "temperature": 42.58,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 43.51,
+        "value": 41.8,
         "weight": 25,
-        "detail": ">20: 1809 | >60: 1553 | >240: 2514"
+        "detail": ">20: 1721 | >60: 1482 | >240: 2443"
       },
       "macd_positive": {
-        "value": 49.47,
+        "value": 48.29,
         "weight": 20,
-        "detail": "MACD+ 2227/4502"
+        "detail": "MACD+ 2174/4502"
       },
       "turtle_net": {
-        "value": 36.48,
+        "value": 34.8,
         "weight": 15,
-        "detail": "突破 427 | 破低 1644"
+        "detail": "突破 441 | 破低 1810"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 21.25,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 1.15"
       }
     }
   },
   "1h": {
-    "temperature": 42.1,
-    "label": "中性",
+    "temperature": 36.89,
+    "label": "偏冷",
     "components": {
       "above_ma": {
-        "value": 33.31,
+        "value": 32.04,
         "weight": 25,
-        "detail": ">20: 1402 | >60: 1534 | >240: 1577"
+        "detail": ">20: 1341 | >60: 1470 | >240: 1530"
       },
       "macd_positive": {
-        "value": 29.1,
+        "value": 28.14,
         "weight": 20,
-        "detail": "MACD+ 1314/4516"
+        "detail": "MACD+ 1271/4516"
       },
       "turtle_net": {
-        "value": 46.35,
+        "value": 40.04,
         "weight": 15,
-        "detail": "突破 100 | 破低 430"
+        "detail": "突破 150 | 破低 1050"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 21.25,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 1.15"
       }
     }
   }
