@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-11-07T05:06:33",
+  "updated_at": "2026-11-07T06:12:52",
   "daily": {
-    "temperature": 46.56,
+    "temperature": 42.59,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 39.43,
+        "value": 39.25,
         "weight": 25,
-        "detail": ">20: 1537 | >60: 1369 | >240: 2424"
+        "detail": ">20: 1517 | >60: 1364 | >240: 2423"
       },
       "macd_positive": {
-        "value": 42.61,
+        "value": 42.41,
         "weight": 20,
-        "detail": "MACD+ 1920/4506"
+        "detail": "MACD+ 1910/4504"
       },
       "turtle_net": {
-        "value": 47.9,
+        "value": 46.98,
         "weight": 15,
-        "detail": "突破 174 | 破低 363"
+        "detail": "突破 187 | 破低 459"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 21.25,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 1.15"
       }
     }
   },
   "1h": {
-    "temperature": 43.13,
-    "label": "中性",
+    "temperature": 39.14,
+    "label": "偏冷",
     "components": {
       "above_ma": {
-        "value": 29.2,
+        "value": 28.84,
         "weight": 25,
-        "detail": ">20: 1205 | >60: 1305 | >240: 1455"
+        "detail": ">20: 1194 | >60: 1287 | >240: 1437"
       },
       "macd_positive": {
-        "value": 37.4,
+        "value": 37.41,
         "weight": 20,
-        "detail": "MACD+ 1693/4527"
+        "detail": "MACD+ 1694/4528"
       },
       "turtle_net": {
-        "value": 48.98,
+        "value": 47.99,
         "weight": 15,
-        "detail": "突破 47 | 破低 139"
+        "detail": "突破 58 | 破低 240"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 21.25,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 1.15"
       }
     }
   }
