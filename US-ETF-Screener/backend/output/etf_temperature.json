@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-11-07T01:07:19",
+  "updated_at": "2026-11-07T02:06:29",
   "daily": {
-    "temperature": 47.08,
+    "temperature": 42.99,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 40.63,
+        "value": 39.81,
         "weight": 25,
-        "detail": ">20: 1619 | >60: 1410 | >240: 2464"
+        "detail": ">20: 1561 | >60: 1384 | >240: 2437"
       },
       "macd_positive": {
-        "value": 43.23,
+        "value": 42.63,
         "weight": 20,
-        "detail": "MACD+ 1948/4506"
+        "detail": "MACD+ 1921/4506"
       },
       "turtle_net": {
-        "value": 48.49,
+        "value": 48.39,
         "weight": 15,
-        "detail": "突破 154 | 破低 290"
+        "detail": "突破 207 | 破低 352"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 21.25,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 1.15"
       }
     }
   },
   "1h": {
-    "temperature": 41.84,
-    "label": "中性",
+    "temperature": 38.5,
+    "label": "偏冷",
     "components": {
       "above_ma": {
-        "value": 30.48,
+        "value": 29.63,
         "weight": 25,
-        "detail": ">20: 1265 | >60: 1374 | >240: 1496"
+        "detail": ">20: 1209 | >60: 1349 | >240: 1464"
       },
       "macd_positive": {
-        "value": 29.39,
+        "value": 31.96,
         "weight": 20,
-        "detail": "MACD+ 1329/4522"
+        "detail": "MACD+ 1446/4524"
       },
       "turtle_net": {
-        "value": 48.97,
+        "value": 49.65,
         "weight": 15,
-        "detail": "突破 54 | 破低 147"
+        "detail": "突破 122 | 破低 154"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 40.0,
+        "value": 21.25,
         "weight": 20,
-        "detail": "買賣權比率 1.0"
+        "detail": "買賣權比率 1.15"
       }
     }
   }
