@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-11-06T22:12:26",
+  "updated_at": "2026-11-06T23:07:37",
   "daily": {
-    "temperature": 41.82,
+    "temperature": 46.13,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 40.24,
+        "value": 39.05,
         "weight": 25,
-        "detail": ">20: 1649 | >60: 1398 | >240: 2386"
+        "detail": ">20: 1529 | >60: 1352 | >240: 2396"
       },
       "macd_positive": {
-        "value": 47.57,
+        "value": 42.2,
         "weight": 20,
-        "detail": "MACD+ 2141/4501"
+        "detail": "MACD+ 1901/4505"
       },
       "turtle_net": {
-        "value": 33.29,
+        "value": 46.19,
         "weight": 15,
-        "detail": "突破 440 | 破低 1944"
+        "detail": "突破 123 | 破低 466"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 21.25,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 1.15"
+        "detail": "買賣權比率 1.0"
       }
     }
   },
   "1h": {
-    "temperature": 35.68,
-    "label": "偏冷",
+    "temperature": 40.29,
+    "label": "中性",
     "components": {
       "above_ma": {
-        "value": 30.59,
+        "value": 28.97,
         "weight": 25,
-        "detail": ">20: 1253 | >60: 1406 | >240: 1489"
+        "detail": ">20: 1207 | >60: 1281 | >240: 1441"
       },
       "macd_positive": {
-        "value": 27.12,
+        "value": 26.83,
         "weight": 20,
-        "detail": "MACD+ 1226/4520"
+        "detail": "MACD+ 1213/4521"
       },
       "turtle_net": {
-        "value": 35.73,
+        "value": 44.54,
         "weight": 15,
-        "detail": "突破 169 | 破低 1459"
+        "detail": "突破 138 | 破低 632"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 21.25,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 1.15"
+        "detail": "買賣權比率 1.0"
       }
     }
   }
