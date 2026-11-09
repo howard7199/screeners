@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-11-09T23:07:37",
+  "updated_at": "2026-11-10T00:07:14",
   "daily": {
-    "temperature": 48.23,
+    "temperature": 49.28,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 45.35,
+        "value": 48.01,
         "weight": 25,
-        "detail": ">20: 1881 | >60: 1577 | >240: 2672"
+        "detail": ">20: 2053 | >60: 1700 | >240: 2737"
       },
       "macd_positive": {
-        "value": 42.08,
+        "value": 43.92,
         "weight": 20,
-        "detail": "MACD+ 1896/4506"
+        "detail": "MACD+ 1979/4506"
       },
       "turtle_net": {
-        "value": 49.87,
+        "value": 49.96,
         "weight": 15,
-        "detail": "突破 138 | 破低 150"
+        "detail": "突破 118 | 破低 122"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -32,23 +32,23 @@
     }
   },
   "1h": {
-    "temperature": 48.94,
+    "temperature": 52.46,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 41.86,
+        "value": 48.14,
         "weight": 25,
-        "detail": ">20: 2301 | >60: 1720 | >240: 1670"
+        "detail": ">20: 2857 | >60: 2010 | >240: 1838"
       },
       "macd_positive": {
-        "value": 49.18,
+        "value": 58.67,
         "weight": 20,
-        "detail": "MACD+ 2229/4532"
+        "detail": "MACD+ 2724/4643"
       },
       "turtle_net": {
-        "value": 50.89,
+        "value": 51.25,
         "weight": 15,
-        "detail": "突破 252 | 破低 171"
+        "detail": "突破 195 | 破低 79"
       },
       "vix_inverse": {
         "value": 65.0,
