@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-10T02:08:19",
+  "updated_at": "2026-11-10T03:08:20",
   "daily": {
-    "temperature": 57.81,
+    "temperature": 57.93,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -10,24 +10,24 @@
         "detail": "多方 195 · 糾結 216 · 空方 89"
       },
       "above_ma": {
-        "value": 68.53,
+        "value": 68.93,
         "weight": 25,
-        "detail": "前鋒 353 · 中軍 334 · 後衛 341"
+        "detail": "前鋒 355 · 中軍 337 · 後衛 342"
       },
       "macd_positive": {
-        "value": 63.0,
+        "value": 62.8,
         "weight": 15,
-        "detail": "柱狀圖為正 315/500"
+        "detail": "柱狀圖為正 314/500"
       },
       "vix_inverse": {
-        "value": 64.3,
+        "value": 64.55,
         "weight": 15,
-        "detail": "VIX 20.20"
+        "detail": "VIX 20.13"
       },
       "turtle_net": {
-        "value": 53.3,
+        "value": 53.4,
         "weight": 10,
-        "detail": "突破 37 · 破低 4"
+        "detail": "突破 39 · 破低 5"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -37,33 +37,33 @@
     }
   },
   "1h": {
-    "temperature": 61.89,
+    "temperature": 62.65,
     "label": "偏熱",
     "components": {
       "army_alignment": {
-        "value": 53.97,
+        "value": 53.57,
         "weight": 25,
-        "detail": "多方 272 · 糾結 125 · 空方 107"
+        "detail": "多方 270 · 糾結 125 · 空方 109"
       },
       "above_ma": {
-        "value": 69.97,
+        "value": 70.7,
         "weight": 25,
-        "detail": "前鋒 345 · 中軍 345 · 後衛 368"
+        "detail": "前鋒 365 · 中軍 339 · 後衛 365"
       },
       "macd_positive": {
-        "value": 63.1,
+        "value": 68.06,
         "weight": 15,
-        "detail": "柱狀圖為正 318/504"
+        "detail": "柱狀圖為正 343/504"
       },
       "vix_inverse": {
-        "value": 64.3,
+        "value": 64.55,
         "weight": 15,
-        "detail": "VIX 20.20"
+        "detail": "VIX 20.13"
       },
       "turtle_net": {
-        "value": 52.98,
+        "value": 51.88,
         "weight": 10,
-        "detail": "突破 30 · 破低 0"
+        "detail": "突破 20 · 破低 1"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
@@ -73,8 +73,8 @@
     }
   },
   "market_data": {
-    "vix_value": 20.200000762939453,
-    "vix_change_pct": -21.216843822957575,
+    "vix_value": 20.1299991607666,
+    "vix_change_pct": -21.489860998617544,
     "pc_ratio": 0.8
   }
 }
