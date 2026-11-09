@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-09T06:11:19",
+  "updated_at": "2026-11-09T22:07:00",
   "daily": {
-    "temperature": 42.78,
+    "temperature": 46.53,
     "label": "中性",
     "components": {
       "above_ma": {
@@ -25,15 +25,15 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 21.25,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 1.15"
+        "detail": "買賣權比率 1.0"
       }
     }
   },
   "1h": {
-    "temperature": 39.14,
-    "label": "偏冷",
+    "temperature": 42.89,
+    "label": "中性",
     "components": {
       "above_ma": {
         "value": 28.83,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 21.25,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 1.15"
+        "detail": "買賣權比率 1.0"
       }
     }
   }
