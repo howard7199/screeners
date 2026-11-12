@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-11T15:43:45",
+  "updated_at": "2026-11-12T15:42:38",
   "daily": {
-    "temperature": 65.07,
+    "temperature": 65.34,
     "label": "偏熱",
     "components": {
       "premium_distribution": {
@@ -10,14 +10,14 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 59.07,
+        "value": 59.72,
         "weight": 20,
-        "detail": "站上前鋒 155 / 中軍 157 / 後衛 232"
+        "detail": "站上前鋒 157 / 中軍 158 / 後衛 235"
       },
       "institutional_net": {
         "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 58,549,295 股"
+        "detail": "法人淨買超 874,023,533 股"
       },
       "yield_percentile_inverse": {
         "value": 70.49,
@@ -25,19 +25,19 @@
         "detail": "平均殖利率位階 29.5"
       },
       "macd_positive": {
-        "value": 51.79,
+        "value": 52.77,
         "weight": 10,
-        "detail": "MACD正向 159/307"
+        "detail": "MACD正向 162/307"
       },
       "turtle_net": {
-        "value": 50.0,
+        "value": 50.49,
         "weight": 10,
-        "detail": "突破 4 / 破低 4"
+        "detail": "突破 7 / 破低 4"
       }
     }
   },
   "1h": {
-    "temperature": 64.3,
+    "temperature": 63.94,
     "label": "偏熱",
     "components": {
       "premium_distribution": {
@@ -46,14 +46,14 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 50.21,
+        "value": 51.65,
         "weight": 20,
-        "detail": "站上前鋒 187 / 中軍 161 / 後衛 140"
+        "detail": "站上前鋒 191 / 中軍 165 / 後衛 146"
       },
       "institutional_net": {
         "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 58,549,295 股"
+        "detail": "法人淨買超 874,023,533 股"
       },
       "yield_percentile_inverse": {
         "value": 70.49,
@@ -61,14 +61,14 @@
         "detail": "平均殖利率位階 29.5"
       },
       "macd_positive": {
-        "value": 53.7,
+        "value": 55.25,
         "weight": 10,
-        "detail": "MACD正向 174/324"
+        "detail": "MACD正向 179/324"
       },
       "turtle_net": {
-        "value": 58.18,
+        "value": 50.15,
         "weight": 10,
-        "detail": "突破 67 / 破低 14"
+        "detail": "突破 5 / 破低 4"
       }
     }
   }
