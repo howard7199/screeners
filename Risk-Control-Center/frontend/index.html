@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投資組合風控中心 | AI 選股雷達</title>
+    <meta name="description" content="下單前 10 秒算出安全買進張數：五檔分倉、單筆 2% 停損鐵律、1:3 風報比，自選台美股與產業配置，回溯買入時間檢視真實損益與回撤。">
+    <meta name="theme-color" content="#0f1923">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="投資組合風控中心 | AI 選股雷達">
+    <meta property="og:description" content="下單前 10 秒算出安全買進張數：五檔分倉、單筆 2% 停損鐵律、1:3 風報比。">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css?v=20261114e">
+    <style id="gate-style">
+        #access-gate { display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background:linear-gradient(135deg,#0f1923,#1a2a3a); z-index:99999;
+            justify-content:center; align-items:center; flex-direction:column; font-family:Inter,sans-serif; color:#e0e8f0; }
+        #access-gate h1 { font-size:2em; margin-bottom:0.5em; }
+        #access-gate p { font-size:1.1em; color:#8899aa; max-width:420px; text-align:center; line-height:1.6; }
+        #access-gate .icon { font-size:4em; margin-bottom:0.3em; }
+    </style>
+    <script>
+    (function(){
+        var h = window.location.hostname || '';
+        var isLocal = (
+            window.location.protocol === 'file:' ||
+            h === 'localhost' || h === '127.0.0.1' || h === '::1' ||
+            h.indexOf('192.168.') === 0 || h.indexOf('10.') === 0 ||
+            h.endsWith('.ts.net')
+        );
+        if (isLocal) { return; }
+        var SECRET='howard7199_screener_2024_antigravity';
+        var p=new URLSearchParams(window.location.search);
+        var tk=p.get('token'), ex=p.get('expires');
+        if(!tk||ex===null){showGate();return;}
+        var exNum=parseInt(ex);
+        if(exNum!==0 && Date.now()/1000>exNum){showGate('expired');return;}
+        crypto.subtle.digest('SHA-256',new TextEncoder().encode(SECRET+ex)).then(function(buf){
+            var hex=Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+            if(hex.substring(0,16)!==tk){showGate();}
+            else{document.documentElement.style.visibility='visible';}
+        }).catch(function(){showGate();});
+        document.documentElement.style.visibility='hidden';
+        function showGate(type){
+            var render=function(){
+                document.documentElement.style.visibility='visible';
+                document.body.innerHTML='<div id="access-gate" style="display:flex">'
+                    +'<div class="icon">'+(type==='expired'?'⏰':'🔒')+'</div>'
+                    +'<h1>'+(type==='expired'?'連結已過期':'需要存取權限')+'</h1>'
+                    +'<p>'+(type==='expired'
+                        ?'此連結已超過有效期限。<br>請回到 LINE 對話框輸入<br><b>「風控」</b>取得新的連結。'
+                        :'此風控系統僅限授權用戶使用。<br>請在 LINE 對話框輸入<br><b>「風控」</b>取得專屬連結。')
+                    +'</p></div>';
+            };
+            window.__RC_GATED__=true;
+            if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',render);}
+            else{render();}
+        }
+    })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Section 1: Header -->
+        <header class="glass-panel">
+            <div class="header-left">
+                <h1>🛡️ AI 選股雷達 · 投資組合風控中心</h1>
+                <p class="subtitle">把風險鎖死，讓獲利奔跑！五檔分倉 × 單筆 2% 保命鐵律 × 1:3 風報比 × 產業配置與買入時間回溯</p>
+            </div>
+            <div class="header-right">
+                <div class="meta-info">
+                    <span class="label">最後更新</span>
+                    <span class="value" id="update-time">--</span>
+                </div>
+                <div class="meta-info">
+                    <span class="label">納管標的</span>
+                    <span class="value" id="stock-count">--</span>
+                </div>
+                <div class="meta-info">
+                    <span class="label">USD/TWD 匯率</span>
+                    <input type="number" id="fx-rate" class="fx-input" step="0.05" min="20" max="50" value="32.90" title="可手動微調美股換算新台幣匯率">
+                </div>
+                <div class="header-actions">
+                    <button class="btn" id="btn-export-json" title="匯出目前風控設定與持股 JSON">💾 匯出投組</button>
+                    <button class="btn" id="btn-import-json" title="匯入先前儲存的持股 JSON">📂 匯入投組</button>
+                    <input type="file" id="file-import-json" accept=".json" style="display:none">
+                </div>
+            </div>
+        </header>
+
+        <div id="app-status-banner" class="app-status-banner" role="status" style="display:none;"></div>
+
+        <main>
+            <!-- Hero Panel 1: AI 風控核心戰情板 + 期望值對決 -->
+            <section class="glass-panel video-hero-banner">
+                <div class="section-header" style="margin-bottom:12px;">
+                    <div>
+                        <h2>🛡️ AI 風控核心戰情板</h2>
+                        <p class="section-sub">調整「預期勝率」與下方風控規則，即時試算：鎖死單筆 2% 停損、拉開高風報比，連勝率 50% 都能維持正期望值穩健獲利</p>
+                    </div>
+                    <span class="tag-pill tag-ok" id="hud-overall-badge">🛡️ AI 風控防護啟動中</span>
+                </div>
+
+                <div class="ai-hud-strip">
+                    <!-- HUD 1: Win Rate Slider (70% from Video) -->
+                    <div class="hud-card">
+                        <div class="hud-top">
+                            <span>預期勝率 (可滑動試算)</span>
+                            <span class="tag-pill tag-ok" id="hud-winrate-tag">高勝率</span>
+                        </div>
+                        <div class="hud-big"><span id="hud-winrate-val">70</span>%</div>
+                        <input type="range" id="cfg-win-rate" min="30" max="90" step="5" value="70" style="width:100%;accent-color:var(--primary);cursor:pointer;">
+                    </div>
+
+                    <!-- HUD 2: Total Capital & 5-Slot Diversification -->
+                    <div class="hud-card">
+                        <div class="hud-top">
+                            <span>投資本金 / 建議分倉</span>
+                            <span class="tag-pill tag-info" id="hud-slots-tag">分散風險</span>
+                        </div>
+                        <div class="hud-big" id="hud-capital-val">NT$ 1,000,000</div>
+                        <div class="hud-sub" id="hud-slots-sub">目前 <b style="color:#fff">5 檔</b>（黃金標準：5 檔不同產業）</div>
+                    </div>
+
+                    <!-- HUD 3: Max Stop-Loss Cap (2% = $20,000) -->
+                    <div class="hud-card">
+                        <div class="hud-top">
+                            <span>單筆最大停損紅線</span>
+                            <span class="tag-pill tag-danger" id="hud-stop-pct-tag">嚴控 2.0%</span>
+                        </div>
+                        <div class="hud-big neg" id="hud-max-stop-amt">$20,000</div>
+                        <div class="hud-sub" id="hud-five-loss-sub">連錯 5 次仍保本金 90% ($900,000)</div>
+                    </div>
+
+                    <!-- HUD 4: Expected Take-Profit Space -->
+                    <div class="hud-card">
+                        <div class="hud-top">
+                            <span>投組預期波段停利</span>
+                            <span class="tag-pill tag-ok" id="hud-tp-tag">讓獲利奔跑</span>
+                        </div>
+                        <div class="hud-big pos" id="hud-tp-amt">$150,000</div>
+                        <div class="hud-sub" id="hud-tp-sub">目標波段停利 +30% 試算</div>
+                    </div>
+
+                    <!-- HUD 5: AI Risk-Reward Ratio & Single-Trade Risk Safety Bar -->
+                    <div class="hud-card hud-highlight">
+                        <div class="hud-top">
+                            <span>AI 風控風報比評級</span>
+                            <span class="tag-pill tag-ok" id="hud-rr-grade">優 · 綠燈</span>
+                        </div>
+                        <div class="hud-big" style="color:var(--primary)" id="hud-rr-val">風報比 3.5 倍</div>
+                        <div>
+                            <div style="display:flex;justify-content:space-between;font-size:11.5px;">
+                                <span id="hud-single-risk-txt" style="color:#4ade80;font-weight:600;">單筆最大風險：2.0% (安全)</span>
+                            </div>
+                            <div class="safety-bar-track">
+                                <div class="safety-bar-fill" id="hud-safety-bar" style="width:40%;background:linear-gradient(90deg,#22c55e,#eab308);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10-Trade Mathematical Expectancy Showdown (Video Ch.2 vs Ch.3) -->
+                <div class="exp-compare-grid">
+                    <div class="exp-box exp-bad">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
+                            <b style="color:#f87171;">❌ 經典韭菜心魔（賺 2% 就跑、賠 30% 死扛不放）</b>
+                            <span class="num neg" style="font-weight:700;" id="exp-bad-result">10 筆總結算：倒賠</span>
+                        </div>
+                        <div style="color:var(--text-secondary);font-size:12px;" id="exp-bad-detail">
+                            就算勝率高達 70%（10 次贏 7 次各賺 +2%，輸 3 次死扛 -30%），賺 5 次根本不夠一次大賠！
+                        </div>
+                    </div>
+                    <div class="exp-box exp-good">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
+                            <b style="color:var(--primary);">✅ AI 風控紀律（鎖死單筆停損 2%、拉開高風報比）</b>
+                            <span class="num pos" style="font-weight:700;" id="exp-good-result">10 筆期望獲利：+--</span>
+                        </div>
+                        <div style="color:var(--text-secondary);font-size:12px;" id="exp-good-detail">
+                            看錯嚴守停損紅線、看對讓波段獲利奔跑，即使勝率降到 50% 依然正期望值穩健累積！
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hero Panel 2: 下單前 10 秒部位反推自動試算表 & 買進前必問 3 個問題 -->
+            <section class="glass-panel">
+                <div class="section-header">
+                    <div>
+                        <h2>⚡ 下單前 10 秒「安全買進張數」試算表 ＆ 買進必問 3 題</h2>
+                        <p class="section-sub">搜尋任一股票自動帶入現價與技術支撐，或手動輸入 4 個數字，三關全過亮綠燈才進場</p>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <button class="btn btn-secondary" id="btn-calc-video-demo">↺ 載入預設試算範例 (110元 / 停損100元 / 目標145元)</button>
+                    </div>
+                </div>
+
+                <div class="calc-two-col">
+                    <!-- Left: Step 1 - Input 4 Numbers (or Pick Stock) -->
+                    <div class="calc-inputs-box">
+                        <div class="calc-box-title">
+                            <span>● 步驟一：選擇股票帶入，或直接輸入 4 個數字</span>
+                            <span id="calc-picked-badge" class="tag-pill tag-info">手動試算模式</span>
+                        </div>
+
+                        <div class="calc-stock-picker">
+                            <input type="text" id="calc-stock-search" placeholder="🔎 輸入代號/名稱帶入真實股價與均線支撐（如 2330、台積電、2454、0050、NVDA）..." style="width:100%;background:rgba(0,0,0,0.45);border:1px solid var(--card-border);color:var(--text-primary);padding:8px 11px;border-radius:8px;font-size:13px;">
+                            <div class="calc-suggest-menu" id="calc-suggest-menu"></div>
+                        </div>
+
+                        <div class="calc-field-row">
+                            <label>① 總投資本金 (NT$)<small>與主設定同步連動</small></label>
+                            <input type="number" id="calc-capital" step="50000" min="10000" value="1000000">
+                        </div>
+
+                        <div class="calc-field-row">
+                            <label>② 預計買進價<small id="calc-currency-hint">新台幣 (NT$) / 每股</small></label>
+                            <input type="number" id="calc-entry-price" step="0.5" min="0.01" value="110">
+                        </div>
+
+                        <div class="calc-field-row">
+                            <div>
+                                <label>③ 明確技術停損價<small>跌破支撐無條件出場</small></label>
+                                <div class="chip-row" id="calc-stop-chips">
+                                    <button class="chip-btn" data-calc-stop="pct5">-5%</button>
+                                    <button class="chip-btn" data-calc-stop="pct8">-8%</button>
+                                    <button class="chip-btn" data-calc-stop="ma20">MA20支撐</button>
+                                    <button class="chip-btn" data-calc-stop="ma60">MA60支撐</button>
+                                    <button class="chip-btn" data-calc-stop="turtle">20D低點</button>
+                                </div>
+                            </div>
+                            <input type="number" id="calc-stop-price" step="0.5" min="0.01" value="100">
+                        </div>
+
+                        <div class="calc-field-row">
+                            <div>
+                                <label>④ 波段目標停利價<small>評估潛在獲利空間</small></label>
+                                <div class="chip-row">
+                                    <button class="chip-btn" data-calc-tp="rr3">1:3 達標價</button>
+                                    <button class="chip-btn" data-calc-tp="rr5">1:5 波段價</button>
+                                    <button class="chip-btn" data-calc-tp="rr75">1:7.5 強勢價</button>
+                                    <button class="chip-btn" data-calc-tp="high52">52週高點</button>
+                                </div>
+                            </div>
+                            <input type="number" id="calc-target-price" step="0.5" min="0.01" value="145">
+                        </div>
+                    </div>
+
+                    <!-- Right: Step 2 - 3-Step Formula Output & 3 Questions Checklist -->
+                    <div class="calc-steps-box">
+                        <div class="calc-box-title" style="color:var(--primary);">
+                            <span>★ 步驟二：10 秒部位反推公式 ＆ 贏家下單前必問 3 個問題</span>
+                            <span id="calc-rr-pill" class="tag-pill tag-ok">風報比 1 : 3.5（優）</span>
+                        </div>
+
+                        <!-- 3 Formula Cards from Video Ch.4 -->
+                        <div class="three-steps-grid">
+                            <div class="step-card">
+                                <div class="st-hdr">STEP 1｜先找支撐停損價差</div>
+                                <div class="st-formula" id="c-step1-formula">買進 110 - 停損 100</div>
+                                <div class="st-ans" id="c-step1-ans">每股價差 10 元（買 1 張賠 10,000 元）</div>
+                            </div>
+                            <div class="step-card">
+                                <div class="st-hdr">STEP 2｜鎖死 <span id="c-step2-pct">2.0</span>% 虧損紅線</div>
+                                <div class="st-formula" id="c-step2-formula">1,000,000 × 2.0% 鐵律</div>
+                                <div class="st-ans" id="c-step2-ans">這筆交易最多只准賠 NT$ 20,000！</div>
+                            </div>
+                            <div class="step-card">
+                                <div class="st-hdr">STEP 3｜反推最大安全張數</div>
+                                <div class="st-formula" id="c-step3-formula">20,000 ÷ 每張賠 10,000</div>
+                                <div class="st-ans" id="c-step3-ans" style="background:rgba(240,185,11,0.18);color:#fde047;">安全答案：最多買 2.00 張 (2,000 股)</div>
+                            </div>
+                        </div>
+
+                        <!-- 3 Pre-Trade Questions Checklist from Video Ch.6 -->
+                        <div class="three-q-list">
+                            <div class="q-row pass" id="c-q1-row">
+                                <span>問題 ①｜看錯方向時，我的「明確技術停損價」在哪裡？</span>
+                                <b class="num" id="c-q1-status">✅ 已設定 (100.0)</b>
+                            </div>
+                            <div class="q-row pass" id="c-q2-row">
+                                <span>問題 ②｜萬一觸發停損，虧損有沒有嚴格控制在總資金 <span class="q2-limit-lbl">2.0</span>% 以內？</span>
+                                <b class="num" id="c-q2-status">✅ 鎖死 2.0% ($20,000)</b>
+                            </div>
+                            <div class="q-row pass" id="c-q3-row">
+                                <span>問題 ③｜波段潛在獲利空間，有沒有達到停損風險的 3 倍以上（≥ 1:3）？</span>
+                                <b class="num" id="c-q3-status">✅ 1 : 3.5 達標</b>
+                            </div>
+                        </div>
+
+                        <!-- Final Verdict Banner + Add to Portfolio CTA -->
+                        <div class="verdict-banner verdict-pass" id="calc-verdict-banner">
+                            <span id="calc-verdict-text">🟢 三關全過・綠燈放行！安全買進上限 NT$ 220,000（2.00 張）</span>
+                            <button class="btn btn-primary" id="btn-calc-add-portfolio" style="background:var(--primary);color:#061310;font-weight:700;">➕ 按此安全部位加入下方投組</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Dashboard: Risk Gauge + Risk Rules & Capital Settings -->
+            <div class="top-dashboard">
+                <!-- Left: Portfolio Risk Temperature Gauge -->
+                <section class="glass-panel temperature-section">
+                    <div class="section-header">
+                        <h2>投組風險溫度計</h2>
+                        <span class="tag-pill tag-info" id="portfolio-count-badge">0 檔持股</span>
+                    </div>
+
+                    <div class="market-temp-bar">
+                        <div class="mkt-temp-pill">
+                            <span>🇹🇼 台股大盤溫度</span>
+                            <b class="num" id="tw-mkt-temp">--</b>
+                        </div>
+                        <div class="mkt-temp-pill">
+                            <span>🇺🇸 美股大盤溫度</span>
+                            <b class="num" id="us-mkt-temp">--</b>
+                        </div>
+                    </div>
+
+                    <div class="gauge-container">
+                        <div class="gauge">
+                            <svg viewBox="0 0 100 50" class="gauge-svg">
+                                <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round"/>
+                                <path class="gauge-fill" id="gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6"/>
+                            </svg>
+                            <div class="gauge-value" id="gauge-value">--</div>
+                            <div class="gauge-label" id="gauge-label">--</div>
+                        </div>
+                    </div>
+
+                    <div class="mini-kpi-grid">
+                        <div class="mini-kpi">
+                            <span class="k-lbl">已配置資金 / 總本金</span>
+                            <span class="k-val" id="kpi-invested">--</span>
+                            <span class="k-sub" id="kpi-invested-pct">佔比 --%</span>
+                        </div>
+                        <div class="mini-kpi">
+                            <span class="k-lbl">保留現金安全墊</span>
+                            <span class="k-val" id="kpi-cash">--</span>
+                            <span class="k-sub" id="kpi-cash-pct">目標 ≥ 20%</span>
+                        </div>
+                        <div class="mini-kpi">
+                            <span class="k-lbl">買入至今總損益</span>
+                            <span class="k-val" id="kpi-pnl">--</span>
+                            <span class="k-sub" id="kpi-pnl-pct">報酬率 --%</span>
+                        </div>
+                        <div class="mini-kpi">
+                            <span class="k-lbl">全停損觸發總風險</span>
+                            <span class="k-val" id="kpi-stop-risk">--</span>
+                            <span class="k-sub" id="kpi-stop-risk-pct">佔總本金 --%</span>
+                        </div>
+                    </div>
+
+                    <div class="indicators" id="indicators-container">
+                        <!-- Dynamically populated 6 risk sub-indicators -->
+                    </div>
+                </section>
+
+                <!-- Right: Risk Control Parameters & Capital Configuration -->
+                <section class="glass-panel filters-section">
+                    <div class="section-header">
+                        <h2>風控規則與資金設定</h2>
+                        <div class="quick-filters">
+                            <button class="btn btn-primary active" id="preset-video">⭐ 標準風控 (5檔·2%鐵律)</button>
+                            <button class="btn btn-primary" id="preset-conservative">🛡️ 保守防禦</button>
+                            <button class="btn btn-primary" id="preset-balanced">⚖️ 穩健均衡</button>
+                            <button class="btn btn-primary" id="preset-aggressive">🚀 積極成長</button>
+                            <button class="btn btn-secondary" id="preset-discipline">📏 10條紀律鐵則</button>
+                            <button class="btn" id="demo-tw">✨ 台股5檔範例</button>
+                            <button class="btn" id="demo-global">🌎 台美混搭範例</button>
+                            <button class="btn btn-danger" id="btn-clear-all">🗑️ 清空投組</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-grid">
+                        <!-- 1. Total Capital -->
+                        <div class="filter-group">
+                            <label>總投資本金 (NT$) <span class="lbl-val" id="lbl-total-capital">100 萬</span></label>
+                            <input type="number" id="cfg-total-capital" step="50000" min="10000" value="1000000">
+                            <div class="chip-row">
+                                <button class="chip-btn" data-cap="500000">50萬</button>
+                                <button class="chip-btn" data-cap="1000000">100萬</button>
+                                <button class="chip-btn" data-cap="3000000">300萬</button>
+                                <button class="chip-btn" data-cap="5000000">500萬</button>
+                                <button class="chip-btn" data-cap="10000000">1000萬</button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Min Cash Reserve -->
+                        <div class="filter-group">
+                            <label>最低保留現金水位 <span class="lbl-val"><span id="val-min-cash">20</span>%</span></label>
+                            <input type="range" id="cfg-min-cash" min="0" max="60" step="5" value="20">
+                            <span class="hint-line" id="hint-investable">可投入上限: NT$ 800,000</span>
+                        </div>
+
+                        <!-- 3. Max Single Stock Weight -->
+                        <div class="filter-group">
+                            <label>單一股票上限 <span class="lbl-val"><span id="val-max-stock">20</span>%</span></label>
+                            <input type="range" id="cfg-max-stock" min="5" max="50" step="1" value="20">
+                            <span class="hint-line" id="hint-max-stock">單檔上限: NT$ 200,000</span>
+                        </div>
+
+                        <!-- 4. Max Sector Weight -->
+                        <div class="filter-group">
+                            <label>單一產業類別上限 <span class="lbl-val"><span id="val-max-sector">35</span>%</span></label>
+                            <input type="range" id="cfg-max-sector" min="15" max="75" step="5" value="35">
+                            <span class="hint-line" id="hint-max-sector">單一產業上限: NT$ 350,000</span>
+                        </div>
+
+                        <!-- 5. Max Risk Per Trade (% of Total Capital) -->
+                        <div class="filter-group">
+                            <label>單筆停損最大允許虧損 <span class="lbl-val"><span id="val-risk-per-trade">1.5</span>%</span></label>
+                            <input type="range" id="cfg-risk-per-trade" min="0.5" max="5.0" step="0.25" value="1.5">
+                            <span class="hint-line" id="hint-risk-per-trade">單檔觸發停損最多賠: NT$ 15,000</span>
+                        </div>
+
+                        <!-- 6. Stop-Loss Strategy -->
+                        <div class="filter-group">
+                            <label>停損計算機制 <span class="lbl-val" id="lbl-stop-param">-10%</span></label>
+                            <select id="cfg-stop-mode">
+                                <option value="fixed">固定百分比停損 (依買入成本)</option>
+                                <option value="atr">ATR 波動率動態停損 (現價 - N×ATR)</option>
+                                <option value="trailing">移動停損 Trailing Stop (買入後最高價回落)</option>
+                                <option value="ma20">三軍前鋒線停損 (跌破 MA20)</option>
+                                <option value="ma60">三軍中軍線停損 (跌破 MA60)</option>
+                                <option value="turtle">海龜通道破低停損 (20日低點)</option>
+                            </select>
+                            <input type="range" id="cfg-stop-param" min="3" max="25" step="1" value="10">
+                        </div>
+
+                        <!-- 7. Default Buy Date & Batch Apply -->
+                        <div class="filter-group">
+                            <label>預設買入時間 <button class="chip-btn" id="btn-apply-date-all" title="將此買入日期一鍵套用至目前所有持股並重算歷史成本">套用全部持股</button></label>
+                            <input type="date" id="cfg-default-buy-date">
+                            <div class="chip-row">
+                                <button class="chip-btn" data-date-offset="0">今日</button>
+                                <button class="chip-btn" data-date-offset="30">1個月前</button>
+                                <button class="chip-btn" data-date-offset="90">3個月前</button>
+                                <button class="chip-btn" data-date-offset="180">半年前</button>
+                                <button class="chip-btn" data-date-offset="ytd">今年初</button>
+                                <button class="chip-btn" data-date-offset="365">1年前</button>
+                            </div>
+                        </div>
+
+                        <!-- 8. Entry Staging & Take-Profit Target -->
+                        <div class="filter-group">
+                            <label>建倉節奏與目標停利 <span class="lbl-val">+<span id="val-tp-pct">25</span>%</span></label>
+                            <select id="cfg-entry-mode">
+                                <option value="lump">單筆一次買進 (100% 到位)</option>
+                                <option value="pyramid3">金字塔分 3 批建倉 (首筆40% / 二批30% / 三批30%)</option>
+                                <option value="dca4">分 4 批定額進場 (每批 25% 分散買點風險)</option>
+                            </select>
+                            <input type="range" id="cfg-tp-pct" min="10" max="100" step="5" value="25" title="目標停利 %，用於計算每檔風報比 (Reward/Risk)">
+                        </div>
+                    </div>
+
+                    <div class="smart-alloc-bar">
+                        <span class="section-sub">💡 智慧部位調整（依上方風控規則自動分配每檔股票金額）：</span>
+                        <div class="alloc-buttons">
+                            <button class="btn btn-primary" id="btn-alloc-equal" title="扣除保留現金後，平均分配給所有持股">⚖️ 等權重分配</button>
+                            <button class="btn btn-primary" id="btn-alloc-risk-parity" title="依年化波動率倒數配置：高波動股少買、低波動股多買">🛡️ 波動率風險平價 (Risk Parity)</button>
+                            <button class="btn btn-primary" id="btn-alloc-atr-sizing" title="依「單筆最大允許虧損 ÷ 停損距離」反推每檔最安全買入金額">🎯 依停損風險反推部位</button>
+                            <button class="btn btn-secondary" id="btn-alloc-trim-cap" title="自動將超過單檔上限或單一產業上限的持股裁切回安全線內">✂️ 一鍵裁切超標部位</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section 3: My Portfolio Holdings & Per-Stock Controls -->
+            <section class="glass-panel portfolio-section">
+                <div class="section-header">
+                    <div>
+                        <h2>📋 我的風控持股明細（可逐檔調整產業類別、買入時間、買入成本與金額）</h2>
+                        <p class="section-sub">點擊任一持股列可展開「部位規模試算、波動率尾部風險、三軍均線支撐、10 條紀律鐵則加減碼價位表」</p>
+                    </div>
+                    <div class="timeframe-toggle">
+                        <span style="font-size:12px;color:var(--text-secondary);padding:4px 8px;">歷史回溯狀態：<b id="history-load-status" style="color:var(--primary)">載入中...</b></span>
+                    </div>
+                </div>
+
+                <div id="portfolio-empty" class="empty-state" style="display:none;">
+                    <h3>目前投組尚無持股</h3>
+                    <p>請從下方「選股與產業類別探索器」點選 <b>+ 加入投組</b>，或點擊上方 <b>✨ 台股範例</b> 快速體驗。</p>
+                </div>
+
+                <div class="table-container" id="portfolio-table-wrap">
+                    <table id="portfolio-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>標的代號 / 名稱</th>
+                                <th>歸屬產業類別</th>
+                                <th>買入時間</th>
+                                <th>買入成本</th>
+                                <th>現價 / 帳面損益</th>
+                                <th>投入金額 (NT$) / 佔總本金</th>
+                                <th>停損價 (距離)</th>
+                                <th>停損最大虧損</th>
+                                <th>風報比 / 波動</th>
+                                <th>風控檢核 & 紀律建議</th>
+                                <th>移除</th>
+                            </tr>
+                        </thead>
+                        <tbody id="portfolio-tbody">
+                            <!-- Dynamically rendered -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 4: Stock & Sector Picker (Follows Screener Filter + Table Logic) -->
+            <section class="glass-panel picker-section">
+                <div class="section-header">
+                    <div>
+                        <h2>🔍 選擇股票與產業類別（點擊產業標籤快速篩選，一鍵加入風控投組）</h2>
+                        <p class="section-sub">完整串聯篩選器資料庫：支援台股上市櫃興櫃、台股 ETF、美股 S&P500 與熱門美股 ETF</p>
+                    </div>
+                    <div class="market-tabs" id="picker-market-tabs">
+                        <button class="tab-btn active" data-mkt="ALL">全部市場</button>
+                        <button class="tab-btn" data-mkt="TW-Stock">🇹🇼 台股個股</button>
+                        <button class="tab-btn" data-mkt="TW-ETF">🇹🇼 台股 ETF</button>
+                        <button class="tab-btn" data-mkt="US-Stock">🇺🇸 美股個股</button>
+                        <button class="tab-btn" data-mkt="US-ETF">🇺🇸 美股 ETF</button>
+                    </div>
+                </div>
+
+                <!-- Interactive Industry/Sector Pills -->
+                <div class="sector-pills-wrap" id="sector-pills-container">
+                    <!-- Populated dynamically with sector counts + held weight badges -->
+                </div>
+
+                <!-- Search & Risk Filters -->
+                <div class="picker-toolbar">
+                    <div class="search-box-wrap">
+                        <input type="text" id="picker-search" placeholder="🔎 輸入股票代號或名稱搜尋（例：2330、台積電、0050、00878、NVDA、輝達、TLT）...">
+                    </div>
+                    <select id="picker-risk-level">
+                        <option value="ALL">風險等級：全部</option>
+                        <option value="低波穩健">🟢 低波穩健 (Score ≤ 32)</option>
+                        <option value="中度風險">🟡 中度風險 (33 - 55)</option>
+                        <option value="高波積極">🟠 高波積極 (56 - 75)</option>
+                        <option value="極高風險">🔴 極高風險 (≥ 76)</option>
+                    </select>
+                    <select id="picker-army">
+                        <option value="ALL">三軍排列：全部</option>
+                        <option value="多方排列">🟢 多方排列</option>
+                        <option value="糾結">⚪ 均線糾結</option>
+                        <option value="空方排列">🔴 空方排列</option>
+                    </select>
+                    <select id="picker-sort">
+                        <option value="sharpe_desc">排序：夏普值 (高 → 低)</option>
+                        <option value="risk_asc">排序：風險分數 (低 → 高)</option>
+                        <option value="risk_desc">排序：風險分數 (高 → 低)</option>
+                        <option value="vol_asc">排序：年化波動率 (低 → 高)</option>
+                        <option value="mdd_asc">排序：1年最大回撤 (小 → 大)</option>
+                        <option value="mom_desc">排序：動能因子 (高 → 低)</option>
+                        <option value="chg_desc">排序：單日漲幅 (高 → 低)</option>
+                    </select>
+                </div>
+
+                <div style="font-size:12.5px;color:var(--text-secondary);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+                    <span>符合篩選條件：<b id="picker-filtered-count" style="color:var(--secondary)">--</b> 檔</span>
+                    <button class="btn btn-xs" id="btn-toggle-picker-table">收合 / 展開候選清單</button>
+                </div>
+
+                <div id="picker-table-body-wrap">
+                    <div class="table-container">
+                        <table id="picker-table">
+                            <thead>
+                                <tr>
+                                    <th>操作</th>
+                                    <th>代號</th>
+                                    <th>名稱</th>
+                                    <th>市場</th>
+                                    <th>產業類別</th>
+                                    <th>現價</th>
+                                    <th>漲跌%</th>
+                                    <th>風險評分</th>
+                                    <th>年化波動率</th>
+                                    <th>ATR%</th>
+                                    <th>Beta</th>
+                                    <th>1Y 最大回撤</th>
+                                    <th>夏普值</th>
+                                    <th>三軍排列</th>
+                                </tr>
+                            </thead>
+                            <tbody id="picker-tbody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button class="btn btn-xs" id="picker-prev">上一頁</button>
+                        <span id="picker-page-info" style="font-size:12px;color:var(--text-secondary);">第 1 頁</span>
+                        <button class="btn btn-xs" id="picker-next">下一頁</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: 4-Panel Risk Analytics Suite -->
+            <div class="analytics-grid">
+                <!-- Panel A: Sector Concentration Treemap & Cap Comparison -->
+                <section class="glass-panel">
+                    <div class="section-header">
+                        <h2>📊 產業與現金配置熱力圖</h2>
+                        <span class="section-sub">紅框＝超過單檔或產業上限 · 黃線＝單一產業上限門檻</span>
+                    </div>
+                    <div id="sector-heatmap"></div>
+                    <div id="sector-bars"></div>
+                </section>
+
+                <!-- Panel B: Historical Portfolio Equity & Underwater Drawdown -->
+                <section class="glass-panel">
+                    <div class="section-header">
+                        <h2>📈 買入時間淨值追蹤 & 水下回撤曲線</h2>
+                        <div class="timeframe-toggle">
+                            <button class="toggle-btn active" id="chart-mode-actual" data-mode="actual">依買入日期追蹤</button>
+                            <button class="toggle-btn" id="chart-mode-1y" data-mode="1y">近1年同權重回測</button>
+                        </div>
+                    </div>
+                    <div class="chart-kpi-strip">
+                        <div class="chart-kpi-box"><span>期間累積報酬</span><b id="bt-cum-ret">--</b></div>
+                        <div class="chart-kpi-box"><span>期間最大回撤 (MDD)</span><b id="bt-max-dd" class="neg">--</b></div>
+                        <div class="chart-kpi-box"><span>投組年化波動率</span><b id="bt-ann-vol">--</b></div>
+                        <div class="chart-kpi-box"><span>投組夏普比率</span><b id="bt-sharpe">--</b></div>
+                    </div>
+                    <div class="svg-chart-wrap" id="equity-chart-container">
+                        <!-- Pure SVG Equity + Drawdown Chart -->
+                    </div>
+                </section>
+
+                <!-- Panel C: Pairwise Correlation Matrix -->
+                <section class="glass-panel">
+                    <div class="section-header">
+                        <h2>🔗 持股相關係數矩陣 (近 1 年日報酬)</h2>
+                        <span class="section-sub" id="corr-summary-badge">平均相關係數: --</span>
+                    </div>
+                    <p class="section-sub" style="margin-bottom:10px;">
+                        相關係數 &gt; 0.70 代表高度同漲同跌（假分散）；低於 0.30 或負相關（如股票搭配公債/黃金）具備真實對沖保護效果。
+                    </p>
+                    <div class="corr-scroll" id="corr-matrix-container">
+                        <!-- Dynamically populated N x N matrix -->
+                    </div>
+                </section>
+
+                <!-- Panel D: Value-at-Risk (VaR) & Stress Testing -->
+                <section class="glass-panel">
+                    <div class="section-header">
+                        <h2>🦢 風險價值 (VaR) & 黑天鵝壓力測試</h2>
+                        <span class="section-sub">依持股真實歷史波動率、Beta 與產業屬性推估</span>
+                    </div>
+                    <div class="var-cards">
+                        <div class="var-card">
+                            <div class="v-title">單日 95% VaR (日常上限)</div>
+                            <div class="v-amt" id="var-1d-95">--</div>
+                            <div class="v-pct" id="var-1d-95-pct">--</div>
+                        </div>
+                        <div class="var-card">
+                            <div class="v-title">單日 95% CVaR (尾部期望虧損)</div>
+                            <div class="v-amt" id="cvar-1d-95">--</div>
+                            <div class="v-pct" id="cvar-1d-95-pct">--</div>
+                        </div>
+                        <div class="var-card">
+                            <div class="v-title">單月 (20交易日) 95% VaR</div>
+                            <div class="v-amt" id="var-20d-95">--</div>
+                            <div class="v-pct" id="var-20d-95-pct">--</div>
+                        </div>
+                    </div>
+                    <div id="stress-test-container">
+                        <!-- 5 Extreme Stress Scenarios -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section 6: Actionable Risk Checklist -->
+            <section class="glass-panel">
+                <div class="section-header">
+                    <h2>🩺 智慧風控診斷與行動建議清單</h2>
+                    <span class="section-sub">系統自動比對您的資金設定、集中度、停損敞口、相關性與 10 條紀律鐵則</span>
+                </div>
+                <div class="checklist-list" id="risk-checklist">
+                    <!-- Dynamically generated diagnostics -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>免責聲明：本風控系統提供之部位試算、歷史回撤、風險價值 (VaR) 與紀律檢核僅供風險管理參考，不構成任何投資買賣建議。</p>
+            <p>資料來源：串聯四大篩選器每日日 K 快取 · 投組資料自動儲存於您的瀏覽器本機</p>
+        </footer>
+    </div>
+
+    <script src="app.js?v=20261114e"></script>
+</body>
+</html>
