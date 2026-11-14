@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-11-15T00:06:53",
+  "updated_at": "2026-11-15T01:06:26",
   "daily": {
     "temperature": 52.72,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 43.11,
+        "value": 43.1,
         "weight": 25,
         "detail": ">20: 1646 | >60: 1556 | >240: 2637"
       },
       "macd_positive": {
-        "value": 49.99,
+        "value": 50.0,
         "weight": 20,
-        "detail": "MACD+ 2257/4515"
+        "detail": "MACD+ 2258/4516"
       },
       "turtle_net": {
         "value": 47.94,
