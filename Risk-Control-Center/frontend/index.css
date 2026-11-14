@@ -1491,7 +1491,9 @@ footer {
     #portfolio-tbody .pf-select-sector,
     #portfolio-tbody .pf-input-date { width: 100%; max-width: none; font-size: 16px; }
     #portfolio-tbody .pf-input-cost { width: 100%; font-size: 16px; }
-    #portfolio-tbody .pf-input-amt { flex: 1; width: auto; font-size: 16px; }
+    #portfolio-tbody .pf-input-amt { flex: 1; width: auto; min-width: 0; font-size: 16px; }
+    #portfolio-tbody .amt-top-line { width: 100%; }
+    #portfolio-tbody .amt-top-line .btn { flex-shrink: 0; }
     #portfolio-tbody .amt-ctrl-wrap { min-width: 0; }
     #portfolio-tbody .amt-slider { height: 22px; }
     #portfolio-tbody tr.detail-row.open { display: block; }
