@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多檔走勢比較 | AI 選股雷達</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="style.css?v=20261118a">
+    <style id="gate-style">
+        #access-gate { display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background:linear-gradient(135deg,#0f1923,#1a2a3a); z-index:99999;
+            justify-content:center; align-items:center; flex-direction:column; font-family:'Microsoft JhengHei',sans-serif; color:#e0e8f0; }
+        #access-gate h1 { font-size:2em; margin-bottom:0.5em; }
+        #access-gate p { font-size:1.1em; color:#8899aa; max-width:400px; text-align:center; line-height:1.6; }
+        #access-gate .icon { font-size:4em; margin-bottom:0.3em; }
+    </style>
+    <script>
+    (function(){
+        var SECRET='howard7199_screener_2024_antigravity';
+        var p=new URLSearchParams(window.location.search);
+        var tk=p.get('token'), ex=p.get('expires');
+        if(!tk||ex===null){showGate();return;}
+        var exNum=parseInt(ex);
+        if(exNum!==0 && Date.now()/1000>exNum){showGate('expired');return;}
+        crypto.subtle.digest('SHA-256',new TextEncoder().encode(SECRET+ex)).then(function(buf){
+            var h=Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+            if(h.substring(0,16)!==tk){showGate();}
+            else{document.documentElement.style.visibility='visible';}
+        });
+        document.documentElement.style.visibility='hidden';
+        function showGate(type){
+            window.__gated = true;
+            document.addEventListener('DOMContentLoaded',function(){
+                document.documentElement.style.visibility='visible';
+                document.body.innerHTML='<div id="access-gate" style="display:flex">'
+                    +'<div class="icon">'+(type==='expired'?'⏰':'🔒')+'</div>'
+                    +'<h1>'+(type==='expired'?'連結已過期':'需要存取權限')+'</h1>'
+                    +'<p>'+(type==='expired'
+                        ?'此連結已超過有效期限。<br>請回到 LINE 對話框輸入<br><b>「篩選器」</b>取得新的連結。'
+                        :'此工具僅限授權用戶使用。<br>請在 LINE 對話框輸入<br><b>「篩選器」</b>取得專屬連結。')
+                    +'</p></div>';
+            });
+        }
+    })();
+    </script>
+</head>
+<body>
+<div class="app">
+    <header class="panel head">
+        <div>
+            <h1>📈 多檔走勢比較</h1>
+            <p class="sub">台股・美股・ETF・指數 <span id="hdr-count">3,500+</span> 檔｜10 年週線・還原除權息・起點 = 0%</p>
+        </div>
+        <div class="meta">
+            <div><span class="lbl">最後更新</span><span class="val" id="upd">--</span></div>
+            <div><span class="lbl">可比較標的</span><span class="val" id="cnt">--</span></div>
+        </div>
+    </header>
+
+    <section class="panel">
+        <div class="inputs" id="inputs"></div>
+        <datalist id="sym-list"></datalist>
+        <div class="row">
+            <div class="ranges" id="ranges">
+                <button data-r="1y">1 年</button>
+                <button data-r="3y">3 年</button>
+                <button data-r="5y">5 年</button>
+                <button data-r="10y">10 年</button>
+                <button data-r="custom">自訂起始日</button>
+                <input type="date" id="start-date" class="hidden">
+            </div>
+            <label class="bench">比較基準
+                <select id="bench">
+                    <option value="INDEX:TWII">加權指數</option>
+                    <option value="INDEX:TWOII">櫃買指數</option>
+                    <option value="INDEX:SPX">S&amp;P 500</option>
+                    <option value="INDEX:IXIC">那斯達克</option>
+                    <option value="INDEX:SOX">費城半導體</option>
+                    <option value="">不顯示</option>
+                </select>
+            </label>
+            <button id="btn-go" class="primary">更新</button>
+        </div>
+        <div class="hint">可輸入台股代號（2330）、中文名稱（鴻海）、美股代號（NVDA）或指數（S&amp;P 500）；輸入時會跳出建議清單，選好後按 Enter 或「更新」</div>
+        <div class="examples" id="examples"></div>
+        <div class="warn" id="warn"></div>
+    </section>
+
+    <div class="chips" id="chips"></div>
+
+    <section class="panel chart-panel">
+        <div id="chart"></div>
+        <div class="chart-empty" id="chart-empty">輸入股票後按「更新」</div>
+    </section>
+    <div class="period" id="period"></div>
+
+    <section class="panel" id="stats-panel" hidden>
+        <div class="sec">區間統計</div>
+        <div class="tbl-wrap"><table id="stats"></table></div>
+        <div class="note">區間報酬：起點到最新一週的漲跌｜年化報酬：換算成每年平均｜年化波動：每週漲跌換算的一年震盪幅度｜最大回檔：期間內從高點最深跌幅｜Beta：基準漲 1%，這檔平均漲幾 %</div>
+    </section>
+
+    <section class="panel" id="corr-panel" hidden>
+        <div class="sec">週報酬相關係數 <span class="sec-sub">紅＝正相關、綠＝負相關，顏色越深越強</span></div>
+        <div class="tbl-wrap"><table id="corr"></table></div>
+        <div class="note">+0.7 以上高度正相關（常同漲同跌）｜0.3～0.7 中度｜-0.3～0.3 低相關（分散效果好）｜負值為負相關</div>
+    </section>
+
+    <footer>
+        資料來源：Yahoo Finance（週線、已還原除權息；本週為未完成週）。每個交易日收盤後自動更新。<br>
+        所有數字由程式依歷史資料計算，僅供研究參考，不構成投資建議；過去表現不代表未來報酬。
+    </footer>
+</div>
+<script src="lib/lightweight-charts.standalone.production.js"></script>
+<script src="app.js?v=20261118a"></script>
+</body>
+</html>
