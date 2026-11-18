@@ -60,6 +60,9 @@
     const weeklyReturns = a => a.map((v, i) => (i > 0 && v != null && a[i - 1] != null ? v / a[i - 1] - 1 : null));
     const pct = (v, d = 1) => `${v >= 0 ? '+' : ''}${v.toFixed(d)}%`;
     const shortName = s => (s.length > 6 ? s.slice(0, 6) : s);
+    // 表頭／圖例用的短名稱：美股用代號（VOO），指數去掉「指數」，台股取前 6 字
+    const short = l => (l.mkt && l.mkt.startsWith('美股')) ? l.code
+        : l.mkt === '指數' ? l.name.replace(/\s*指數$/, '').replace('S&P 500', 'S&P500') : shortName(l.name);
     const addDays = (iso, n) => { const d = new Date(iso + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -255,7 +258,7 @@
                     color: r.line.color,
                     lineWidth: r.line.isBench ? 2 : (isMobile() ? 2 : 3),
                     lineStyle: r.line.isBench ? LC.LineStyle.Dashed : LC.LineStyle.Solid,
-                    title: isMobile() ? '' : shortName(r.line.name),
+                    title: isMobile() ? '' : short(r.line),
                     priceLineVisible: false,
                 });
                 s.setData(c.D.map((d, i) => ({ time: d, value: r.norm[i] })));
@@ -274,9 +277,9 @@
         $('stats-panel').hidden = !c;
         if (c) {
             const bName = c.benchLine ? c.benchLine.name : '基準';
-            $('stats').innerHTML = `<thead><tr><th>標的</th><th>區間報酬</th><th>年化報酬</th><th>年化波動</th><th>最大回檔</th><th>Beta</th><th class="col-corr-bench">與${esc(shortName(bName))}相關</th></tr></thead><tbody>` +
+            $('stats').innerHTML = `<thead><tr><th>標的</th><th>區間報酬</th><th>年化報酬</th><th>年化波動</th><th>最大回檔</th><th>Beta</th><th class="col-corr-bench">與${esc(c.benchLine ? short(c.benchLine) : bName)}相關</th></tr></thead><tbody>` +
                 c.rows.map(r => `<tr>
-                    <td><span style="color:${r.line.color}">●</span> ${esc(isMobile() ? shortName(r.line.name) : r.line.name)} <span style="opacity:.45;font-size:11px">${esc(r.line.code)}</span></td>
+                    <td><span style="color:${r.line.color}">●</span> ${esc(isMobile() ? short(r.line) : r.line.name)} <span style="opacity:.45;font-size:11px">${esc(r.line.code)}</span></td>
                     <td class="${r.totalRet >= 0 ? 'pos' : 'neg'}">${pct(r.totalRet)}</td>
                     <td class="${r.cagr == null ? '' : r.cagr >= 0 ? 'pos' : 'neg'}">${r.cagr == null ? '—' : pct(r.cagr)}</td>
                     <td>${r.vol.toFixed(1)}%</td>
@@ -288,8 +291,8 @@
         // 相關係數
         $('corr-panel').hidden = !(c && c.rows.length >= 2);
         if (c && c.rows.length >= 2) {
-            $('corr').innerHTML = `<thead><tr><th></th>${c.rows.map(r => `<th style="color:${r.line.color}">${esc(shortName(r.line.name))}</th>`).join('')}</tr></thead><tbody>` +
-                c.rows.map((r, i) => `<tr><td style="color:${r.line.color}">${esc(shortName(r.line.name))}</td>${c.matrix[i].map((v, j) =>
+            $('corr').innerHTML = `<thead><tr><th></th>${c.rows.map(r => `<th style="color:${r.line.color}">${esc(short(r.line))}</th>`).join('')}</tr></thead><tbody>` +
+                c.rows.map((r, i) => `<tr><td style="color:${r.line.color}">${esc(short(r.line))}</td>${c.matrix[i].map((v, j) =>
                     `<td style="background:${corrBg(v, i === j)};opacity:${i === j ? 0.4 : 1};font-weight:${i === j ? 400 : 700}">${v == null ? '—' : v.toFixed(2)}</td>`).join('')}</tr>`).join('') + '</tbody>';
         }
     }
