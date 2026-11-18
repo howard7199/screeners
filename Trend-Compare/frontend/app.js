@@ -278,14 +278,14 @@
         if (c) {
             const bName = c.benchLine ? c.benchLine.name : '基準';
             $('stats').innerHTML = `<thead><tr><th>標的</th><th>區間報酬</th><th>年化報酬</th><th>年化波動</th><th>最大回檔</th><th>Beta</th><th class="col-corr-bench">與${esc(c.benchLine ? short(c.benchLine) : bName)}相關</th></tr></thead><tbody>` +
-                c.rows.map(r => `<tr>
-                    <td><span style="color:${r.line.color}">●</span> ${esc(isMobile() ? short(r.line) : r.line.name)} <span style="opacity:.45;font-size:11px">${esc(r.line.code)}</span></td>
+                c.rows.map(r => { const lbl = isMobile() ? short(r.line) : r.line.name; return `<tr>
+                    <td><span style="color:${r.line.color}">●</span> ${esc(lbl)}${lbl === r.line.code ? '' : ` <span style="opacity:.45;font-size:11px">${esc(r.line.code)}</span>`}</td>
                     <td class="${r.totalRet >= 0 ? 'pos' : 'neg'}">${pct(r.totalRet)}</td>
                     <td class="${r.cagr == null ? '' : r.cagr >= 0 ? 'pos' : 'neg'}">${r.cagr == null ? '—' : pct(r.cagr)}</td>
                     <td>${r.vol.toFixed(1)}%</td>
                     <td class="neg">${r.mdd.toFixed(1)}%</td>
                     <td>${r.line.isBench ? '1.00' : r.beta != null ? r.beta.toFixed(2) : '—'}</td>
-                    <td class="col-corr-bench">${r.line.isBench ? '—' : r.corrBench != null ? r.corrBench.toFixed(2) : '—'}</td></tr>`).join('') + '</tbody>';
+                    <td class="col-corr-bench">${r.line.isBench ? '—' : r.corrBench != null ? r.corrBench.toFixed(2) : '—'}</td></tr>`; }).join('') + '</tbody>';
         }
 
         // 相關係數
