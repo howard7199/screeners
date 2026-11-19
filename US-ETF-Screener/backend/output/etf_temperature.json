@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-11-20T00:07:01",
+  "updated_at": "2026-11-20T01:06:52",
   "daily": {
-    "temperature": 31.27,
+    "temperature": 34.06,
     "label": "偏冷",
     "components": {
       "above_ma": {
-        "value": 25.32,
+        "value": 24.14,
         "weight": 25,
-        "detail": ">20: 426 | >60: 1069 | >240: 1942"
+        "detail": ">20: 410 | >60: 1024 | >240: 1842"
       },
       "macd_positive": {
-        "value": 9.46,
+        "value": 9.15,
         "weight": 20,
-        "detail": "MACD+ 428/4524"
+        "detail": "MACD+ 414/4524"
       },
       "turtle_net": {
-        "value": 38.67,
+        "value": 34.65,
         "weight": 15,
-        "detail": "突破 48 | 破低 1073"
+        "detail": "突破 68 | 破低 1457"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -25,30 +25,30 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 21.25,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 1.15"
+        "detail": "買賣權比率 1.0"
       }
     }
   },
   "1h": {
-    "temperature": 37.07,
+    "temperature": 39.36,
     "label": "偏冷",
     "components": {
       "above_ma": {
-        "value": 18.84,
+        "value": 16.6,
         "weight": 25,
-        "detail": ">20: 1201 | >60: 543 | >240: 961"
+        "detail": ">20: 944 | >60: 529 | >240: 912"
       },
       "macd_positive": {
-        "value": 47.5,
+        "value": 44.32,
         "weight": 20,
-        "detail": "MACD+ 2273/4785"
+        "detail": "MACD+ 2122/4788"
       },
       "turtle_net": {
-        "value": 37.41,
+        "value": 35.63,
         "weight": 15,
-        "detail": "突破 59 | 破低 1264"
+        "detail": "突破 67 | 破低 1443"
       },
       "vix_inverse": {
         "value": 65.0,
@@ -56,9 +56,9 @@
         "detail": "VIX 20.0"
       },
       "pc_ratio_inverse": {
-        "value": 21.25,
+        "value": 40.0,
         "weight": 20,
-        "detail": "買賣權比率 1.15"
+        "detail": "買賣權比率 1.0"
       }
     }
   }
