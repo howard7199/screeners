@@ -205,6 +205,8 @@ function applyFilters() {
         if (f.sector !== 'all' && s.sector_zh !== f.sector && s.sector !== f.sector) return false;
         
         const tech = s[tfKey] || {};
+        s.__rsi = tech && tech.rsi ? tech.rsi.value : null;
+        if (window.rsiPass && !window.rsiPass(s.__rsi)) return false;
         if (f.army !== 'All' && tech.army?.alignment !== f.army) return false;
         if (f.macd !== 'All' && tech.macd?.status !== f.macd) return false;
         if (f.turtle !== 'All' && tech.turtle?.status !== f.turtle) return false;
@@ -272,11 +274,12 @@ function renderTable() {
             <td>${getAlignmentIcon(tech.army?.alignment)} ${tech.army?.alignment || '-'}</td>
             <td>${tech.turtle?.status || '-'}</td>
             <td>${tech.macd?.status || (tech.macd?.positive ? '柱狀圖為正' : '柱狀圖為負')}</td>
+            <td class="num">${tech.rsi?.value != null ? Number(tech.rsi.value).toFixed(1) : '--'}</td>
         `;
         
         const trDetail = document.createElement('tr');
         trDetail.className = 'detail-row';
-        const cols = 13; // updated column count
+        const cols = 14; // updated column count
         
         const momStr = s.revenue?.mom_pct != null ? `${s.revenue.mom_pct > 0 ? '+' : ''}${s.revenue.mom_pct}%` : '--';
         const momClass = s.revenue?.mom_pct > 0 ? 'pos' : (s.revenue?.mom_pct < 0 ? 'neg' : 'neu');
