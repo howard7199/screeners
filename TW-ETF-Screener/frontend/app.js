@@ -236,6 +236,8 @@ function applyFilters() {
         
         const tfKey = f.timeframe === 'daily' ? 'technical_daily' : 'technical_1h';
         const tech = s[tfKey] || {};
+        s.__rsi = tech && tech.rsi ? tech.rsi.value : null;
+        if (window.rsiPass && !window.rsiPass(s.__rsi)) return false;
         if (f.army !== 'all' && tech.army?.alignment !== f.army) return false;
         if (f.macd !== 'all' && tech.macd?.status !== f.macd) return false;
         
@@ -304,11 +306,12 @@ function renderTable() {
             <td class="num">${s.yield?.percentile ?? '-'}%</td>
             <td>${tech.army?.alignment || '-'}</td>
             <td class="${s.institutional?.signal === '法人加碼' || s.institutional?.signal === '法人偏多' ? 'pos' : (s.institutional?.signal === '法人減碼' || s.institutional?.signal === '法人偏空' ? 'neg' : '')}">${s.institutional?.signal || '-'}</td>
+            <td class="num">${tech.rsi?.value != null ? Number(tech.rsi.value).toFixed(1) : '--'}</td>
         `;
         
         const trDetail = document.createElement('tr');
         trDetail.className = 'detail-row';
-        const cols = 12;
+        const cols = 13;
         
         const compHTML = Object.entries(s.signal?.components || {}).map(([k, c]) => `
             <div class="detail-item">
