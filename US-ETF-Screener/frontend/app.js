@@ -317,6 +317,8 @@ function applyFilters() {
         
         const tfKey = f.timeframe === 'daily' ? 'technical_daily' : 'technical_1h';
         const tech = s[tfKey] || {};
+        s.__rsi = tech && tech.rsi ? tech.rsi.value : null;
+        if (window.rsiPass && !window.rsiPass(s.__rsi)) return false;
         
         if (f.army !== 'All' && !(tech.army?.alignment || '').startsWith(f.army)) return false;
         if (f.macd !== 'All' && !(tech.macd?.status || '').startsWith(f.macd)) return false;
@@ -395,11 +397,12 @@ function renderTable() {
             <td>${toZhAlignment(tech.army?.alignment)}</td>
             <td>${toZhTurtle(tech.turtle?.status)}</td>
             <td>${toZhMacd(tech.macd?.status)}</td>
+            <td class="num">${tech.rsi?.value != null ? Number(tech.rsi.value).toFixed(1) : '--'}</td>
         `;
         
         const trDetail = document.createElement('tr');
         trDetail.className = 'detail-row';
-        const cols = 17;
+        const cols = 18;
         
         const compHTML = Object.entries(s.signal?.components || {}).map(([k, c]) => `
             <div class="detail-item">
