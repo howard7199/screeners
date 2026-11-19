@@ -50,11 +50,15 @@
         box.innerHTML = `
             <label>RSI(14) 範圍：<span id="val-rsi" style="color:#fcd34d;font-weight:700">不限</span>
                 <span style="opacity:.6;font-size:11px">（跟著日線／1H 週期；30 以下常稱超賣、70 以上常稱過熱）</span></label>
-            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-                <span style="font-size:12px;opacity:.75;white-space:nowrap">最低</span>
-                <input type="range" id="filter-rsi-min" min="0" max="100" value="0" style="flex:1;min-width:120px">
-                <span style="font-size:12px;opacity:.75;white-space:nowrap">最高</span>
-                <input type="range" id="filter-rsi-max" min="0" max="100" value="100" style="flex:1;min-width:120px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 16px">
+                <div style="display:flex;gap:10px;align-items:center">
+                    <span style="font-size:12px;opacity:.75;white-space:nowrap;width:28px">最低</span>
+                    <input type="range" id="filter-rsi-min" min="0" max="100" value="0" style="flex:1;min-width:0">
+                </div>
+                <div style="display:flex;gap:10px;align-items:center">
+                    <span style="font-size:12px;opacity:.75;white-space:nowrap;width:28px">最高</span>
+                    <input type="range" id="filter-rsi-max" min="0" max="100" value="100" style="flex:1;min-width:0">
+                </div>
             </div>
             <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:2px">
                 ${PRESETS.map(p => `<button type="button" class="rsi-preset" data-min="${p.min}" data-max="${p.max}"
