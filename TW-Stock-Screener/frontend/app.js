@@ -195,6 +195,7 @@ function applyFilters() {
     
     appState.filteredData = appState.screenerData.stocks.filter(s => {
         if (!s) return false;
+        if (window.themePass && !window.themePass(s.symbol)) return false;
         const fac = s.factors || {};
         if ((fac.momentum ?? 0) < f.momentum) return false;
         if ((fac.quality ?? 0) < f.quality) return false;
