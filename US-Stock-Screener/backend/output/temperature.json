@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T06:02:15",
+  "updated_at": "2026-11-21T22:08:57",
   "daily": {
     "temperature": 33.63,
     "label": "偏冷",
@@ -43,7 +43,7 @@
       "army_alignment": {
         "value": 7.31,
         "weight": 25,
-        "detail": "多方 37 · 糾結 290 · 空方 179"
+        "detail": "多方 37 · 糾結 289 · 空方 180"
       },
       "above_ma": {
         "value": 16.86,
