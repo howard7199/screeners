@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-22T05:08:11",
+  "updated_at": "2026-11-23T06:02:19",
   "daily": {
-    "temperature": 33.63,
+    "temperature": 33.64,
     "label": "偏冷",
     "components": {
       "army_alignment": {
@@ -25,9 +25,9 @@
         "detail": "VIX 35.89"
       },
       "turtle_net": {
-        "value": 34.53,
+        "value": 34.63,
         "weight": 10,
-        "detail": "突破 1 · 破低 156"
+        "detail": "突破 1 · 破低 155"
       },
       "pc_ratio_inverse": {
         "value": 65.0,
