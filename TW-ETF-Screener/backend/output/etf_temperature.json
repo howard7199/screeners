@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-24T15:43:06",
+  "updated_at": "2026-11-25T15:41:45",
   "daily": {
-    "temperature": 38.29,
-    "label": "偏冷",
+    "temperature": 57.11,
+    "label": "中性",
     "components": {
       "premium_distribution": {
         "value": 50.0,
@@ -10,14 +10,14 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 46.25,
+        "value": 40.93,
         "weight": 20,
-        "detail": "站上前鋒 111 / 中軍 129 / 後衛 186"
+        "detail": "站上前鋒 102 / 中軍 129 / 後衛 146"
       },
       "institutional_net": {
-        "value": 0,
+        "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 -166,348,299 股"
+        "detail": "法人淨買超 107,207,389 股"
       },
       "yield_percentile_inverse": {
         "value": 70.38,
@@ -30,15 +30,15 @@
         "detail": "MACD正向 30/307"
       },
       "turtle_net": {
-        "value": 50.0,
+        "value": 48.86,
         "weight": 10,
-        "detail": "突破 5 / 破低 5"
+        "detail": "突破 5 / 破低 12"
       }
     }
   },
   "1h": {
-    "temperature": 45.93,
-    "label": "中性",
+    "temperature": 63.18,
+    "label": "偏熱",
     "components": {
       "premium_distribution": {
         "value": 50.0,
@@ -46,14 +46,14 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 46.69,
+        "value": 37.1,
         "weight": 20,
-        "detail": "站上前鋒 260 / 中軍 95 / 後衛 103"
+        "detail": "站上前鋒 170 / 中軍 95 / 後衛 99"
       },
       "institutional_net": {
-        "value": 0,
+        "value": 100,
         "weight": 20,
-        "detail": "法人淨買超 -166,348,299 股"
+        "detail": "法人淨買超 107,207,389 股"
       },
       "yield_percentile_inverse": {
         "value": 70.38,
@@ -61,14 +61,14 @@
         "detail": "平均殖利率位階 29.6"
       },
       "macd_positive": {
-        "value": 83.79,
+        "value": 76.45,
         "weight": 10,
-        "detail": "MACD正向 274/327"
+        "detail": "MACD正向 250/327"
       },
       "turtle_net": {
-        "value": 51.53,
+        "value": 50.61,
         "weight": 10,
-        "detail": "突破 12 / 破低 2"
+        "detail": "突破 7 / 破低 3"
       }
     }
   }
