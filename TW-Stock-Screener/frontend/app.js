@@ -192,6 +192,7 @@ function applyFilters() {
     const tfKey = f.timeframe === 'daily' ? 'technical_daily' : 'technical_1h';
     
     if (!appState.screenerData?.stocks) return;
+    if (window.updateWilliamsCounts) window.updateWilliamsCounts(appState.screenerData.stocks, tfKey);
     
     appState.filteredData = appState.screenerData.stocks.filter(s => {
         if (!s) return false;
@@ -208,6 +209,8 @@ function applyFilters() {
         const tech = s[tfKey] || {};
         s.__rsi = tech && tech.rsi ? tech.rsi.value : null;
         if (window.rsiPass && !window.rsiPass(s.__rsi)) return false;
+        s.__lw_rank = window.williamsRank ? window.williamsRank(tech.williams) : 0;
+        if (window.williamsPass && !window.williamsPass(tech.williams)) return false;
         if (f.army !== 'All' && tech.army?.alignment !== f.army) return false;
         if (f.macd !== 'All' && tech.macd?.status !== f.macd) return false;
         if (f.turtle !== 'All' && tech.turtle?.status !== f.turtle) return false;
@@ -276,11 +279,12 @@ function renderTable() {
             <td>${tech.turtle?.status || '-'}</td>
             <td>${tech.macd?.status || (tech.macd?.positive ? '柱狀圖為正' : '柱狀圖為負')}</td>
             <td class="num">${tech.rsi?.value != null ? Number(tech.rsi.value).toFixed(1) : '--'}</td>
+            <td>${window.renderWilliamsBadge ? window.renderWilliamsBadge(tech.williams) : '--'}</td>
         `;
         
         const trDetail = document.createElement('tr');
         trDetail.className = 'detail-row';
-        const cols = 14; // updated column count
+        const cols = 15; // updated column count
         
         const momStr = s.revenue?.mom_pct != null ? `${s.revenue.mom_pct > 0 ? '+' : ''}${s.revenue.mom_pct}%` : '--';
         const momClass = s.revenue?.mom_pct > 0 ? 'pos' : (s.revenue?.mom_pct < 0 ? 'neg' : 'neu');
@@ -311,6 +315,7 @@ function renderTable() {
                         <div class="detail-item"><span class="lbl">海龜下軌</span><span class="val">${formatNum(tech.turtle?.lower)}</span></div>
                         <div class="detail-item"><span class="lbl">MACD Hist</span><span class="val">${formatNum(tech.macd?.histogram)}</span></div>
                     </div>
+                    ${window.renderWilliamsDetail ? window.renderWilliamsDetail(tech.williams) : ''}
                     <div class="detail-group">
                         <h4>回測表現 (${appState.filters.timeframe === 'daily' ? '日線' : '1H'} 三軍陣列)</h4>
                         ${s[btKey]?.army ? `
