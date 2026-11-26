@@ -221,6 +221,8 @@ function applyFilters() {
     const search = f.search?.toLowerCase() || '';
     
     if (!appState.screenerData?.etfs) return;
+    const _tfKeyAll = f.timeframe === 'daily' ? 'technical_daily' : 'technical_1h';
+    if (window.updateWilliamsCounts) window.updateWilliamsCounts(appState.screenerData.etfs, _tfKeyAll);
     
     appState.filteredData = appState.screenerData.etfs.filter(s => {
         if (!s) return false;
@@ -238,6 +240,8 @@ function applyFilters() {
         const tech = s[tfKey] || {};
         s.__rsi = tech && tech.rsi ? tech.rsi.value : null;
         if (window.rsiPass && !window.rsiPass(s.__rsi)) return false;
+        s.__lw_rank = window.williamsRank ? window.williamsRank(tech.williams) : 0;
+        if (window.williamsPass && !window.williamsPass(tech.williams)) return false;
         if (f.army !== 'all' && tech.army?.alignment !== f.army) return false;
         if (f.macd !== 'all' && tech.macd?.status !== f.macd) return false;
         
@@ -307,11 +311,12 @@ function renderTable() {
             <td>${tech.army?.alignment || '-'}</td>
             <td class="${s.institutional?.signal === '法人加碼' || s.institutional?.signal === '法人偏多' ? 'pos' : (s.institutional?.signal === '法人減碼' || s.institutional?.signal === '法人偏空' ? 'neg' : '')}">${s.institutional?.signal || '-'}</td>
             <td class="num">${tech.rsi?.value != null ? Number(tech.rsi.value).toFixed(1) : '--'}</td>
+            <td>${window.renderWilliamsBadge ? window.renderWilliamsBadge(tech.williams) : '--'}</td>
         `;
         
         const trDetail = document.createElement('tr');
         trDetail.className = 'detail-row';
-        const cols = 13;
+        const cols = 14;
         
         const compHTML = Object.entries(s.signal?.components || {}).map(([k, c]) => `
             <div class="detail-item">
@@ -352,6 +357,7 @@ function renderTable() {
                         <div class="detail-item"><span class="lbl">外資近5日</span><span class="val">${s.institutional?.foreign_net_5d != null ? Number(s.institutional.foreign_net_5d).toLocaleString('zh-TW') : '--'} 股</span></div>
                         <div class="detail-item"><span class="lbl">投信近5日</span><span class="val">${s.institutional?.trust_net_5d != null ? Number(s.institutional.trust_net_5d).toLocaleString('zh-TW') : '--'} 股</span></div>
                     </div>
+                    ${window.renderWilliamsDetail ? window.renderWilliamsDetail(tech.williams) : ''}
                     <div class="detail-group">
                         <h4>基本資料 & 回測</h4>
                         <div class="detail-item"><span class="lbl">發行商</span><span class="val">${s.metadata?.issuer ?? '--'}</span></div>
