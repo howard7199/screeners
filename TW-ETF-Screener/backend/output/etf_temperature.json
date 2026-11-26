@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-26T09:25:25",
+  "updated_at": "2026-11-26T15:47:17",
   "daily": {
-    "temperature": 57.11,
+    "temperature": 58.74,
     "label": "中性",
     "components": {
       "premium_distribution": {
@@ -10,9 +10,9 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 40.93,
+        "value": 45.28,
         "weight": 20,
-        "detail": "站上前鋒 102 / 中軍 129 / 後衛 146"
+        "detail": "站上前鋒 115 / 中軍 132 / 後衛 170"
       },
       "institutional_net": {
         "value": 100,
@@ -20,24 +20,24 @@
         "detail": "法人淨買超 1,205,605,572 股"
       },
       "yield_percentile_inverse": {
-        "value": 70.38,
+        "value": 70.62,
         "weight": 15,
-        "detail": "平均殖利率位階 29.6"
+        "detail": "平均殖利率位階 29.4"
       },
       "macd_positive": {
-        "value": 9.77,
+        "value": 15.64,
         "weight": 10,
-        "detail": "MACD正向 30/307"
+        "detail": "MACD正向 48/307"
       },
       "turtle_net": {
-        "value": 48.86,
+        "value": 50.33,
         "weight": 10,
-        "detail": "突破 5 / 破低 12"
+        "detail": "突破 5 / 破低 3"
       }
     }
   },
   "1h": {
-    "temperature": 63.18,
+    "temperature": 66.64,
     "label": "偏熱",
     "components": {
       "premium_distribution": {
@@ -46,9 +46,9 @@
         "detail": "平均折溢價 0.00%"
       },
       "above_ma": {
-        "value": 37.1,
+        "value": 49.24,
         "weight": 20,
-        "detail": "站上前鋒 170 / 中軍 95 / 後衛 99"
+        "detail": "站上前鋒 264 / 中軍 110 / 後衛 109"
       },
       "institutional_net": {
         "value": 100,
@@ -56,19 +56,19 @@
         "detail": "法人淨買超 1,205,605,572 股"
       },
       "yield_percentile_inverse": {
-        "value": 70.38,
+        "value": 70.62,
         "weight": 15,
-        "detail": "平均殖利率位階 29.6"
+        "detail": "平均殖利率位階 29.4"
       },
       "macd_positive": {
-        "value": 76.45,
+        "value": 86.85,
         "weight": 10,
-        "detail": "MACD正向 250/327"
+        "detail": "MACD正向 284/327"
       },
       "turtle_net": {
-        "value": 50.61,
+        "value": 50.15,
         "weight": 10,
-        "detail": "突破 7 / 破低 3"
+        "detail": "突破 4 / 破低 3"
       }
     }
   }
