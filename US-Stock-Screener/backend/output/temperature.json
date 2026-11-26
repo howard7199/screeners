@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-26T22:08:53",
+  "updated_at": "2026-11-26T23:09:25",
   "daily": {
-    "temperature": 44.6,
+    "temperature": 44.66,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -20,9 +20,9 @@
         "detail": "柱狀圖為正 109/501"
       },
       "vix_inverse": {
-        "value": 40.67,
+        "value": 41.02,
         "weight": 15,
-        "detail": "VIX 26.95"
+        "detail": "VIX 26.85"
       },
       "turtle_net": {
         "value": 52.2,
@@ -37,7 +37,7 @@
     }
   },
   "1h": {
-    "temperature": 54.61,
+    "temperature": 54.66,
     "label": "中性",
     "components": {
       "army_alignment": {
@@ -56,9 +56,9 @@
         "detail": "柱狀圖為正 450/507"
       },
       "vix_inverse": {
-        "value": 40.67,
+        "value": 41.02,
         "weight": 15,
-        "detail": "VIX 26.95"
+        "detail": "VIX 26.85"
       },
       "turtle_net": {
         "value": 51.08,
@@ -73,8 +73,8 @@
     }
   },
   "market_data": {
-    "vix_value": 26.950000762939453,
-    "vix_change_pct": -4.736656448294471,
+    "vix_value": 26.850000381469727,
+    "vix_change_pct": -5.090139580968532,
     "pc_ratio": 0.8
   }
 }
