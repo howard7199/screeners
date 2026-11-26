@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-11-27T05:06:21",
+  "updated_at": "2026-11-27T06:11:27",
   "daily": {
-    "temperature": 36.03,
+    "temperature": 36.08,
     "label": "偏冷",
     "components": {
       "above_ma": {
-        "value": 31.04,
+        "value": 31.15,
         "weight": 25,
-        "detail": ">20: 1091 | >60: 1378 | >240: 1775"
+        "detail": ">20: 1095 | >60: 1382 | >240: 1781"
       },
       "macd_positive": {
-        "value": 17.25,
+        "value": 17.38,
         "weight": 20,
-        "detail": "MACD+ 786/4557"
+        "detail": "MACD+ 792/4557"
       },
       "turtle_net": {
         "value": 50.47,
@@ -46,9 +46,9 @@
         "detail": "MACD+ 3888/4833"
       },
       "turtle_net": {
-        "value": 51.5,
+        "value": 51.51,
         "weight": 15,
-        "detail": "突破 190 | 破低 45"
+        "detail": "突破 190 | 破低 44"
       },
       "vix_inverse": {
         "value": 65.0,
