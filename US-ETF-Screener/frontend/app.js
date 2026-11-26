@@ -306,6 +306,8 @@ function applyFilters() {
     const search = f.search?.toLowerCase() || '';
     
     if (!appState.screenerData?.etfs) return;
+    const _tfKeyAll = f.timeframe === 'daily' ? 'technical_daily' : 'technical_1h';
+    if (window.updateWilliamsCounts) window.updateWilliamsCounts(appState.screenerData.etfs, _tfKeyAll);
     
     appState.filteredData = appState.screenerData.etfs.filter(s => {
         if (!s) return false;
@@ -319,6 +321,8 @@ function applyFilters() {
         const tech = s[tfKey] || {};
         s.__rsi = tech && tech.rsi ? tech.rsi.value : null;
         if (window.rsiPass && !window.rsiPass(s.__rsi)) return false;
+        s.__lw_rank = window.williamsRank ? window.williamsRank(tech.williams) : 0;
+        if (window.williamsPass && !window.williamsPass(tech.williams)) return false;
         
         if (f.army !== 'All' && !(tech.army?.alignment || '').startsWith(f.army)) return false;
         if (f.macd !== 'All' && !(tech.macd?.status || '').startsWith(f.macd)) return false;
@@ -398,11 +402,12 @@ function renderTable() {
             <td>${toZhTurtle(tech.turtle?.status)}</td>
             <td>${toZhMacd(tech.macd?.status)}</td>
             <td class="num">${tech.rsi?.value != null ? Number(tech.rsi.value).toFixed(1) : '--'}</td>
+            <td>${window.renderWilliamsBadge ? window.renderWilliamsBadge(tech.williams) : '--'}</td>
         `;
         
         const trDetail = document.createElement('tr');
         trDetail.className = 'detail-row';
-        const cols = 18;
+        const cols = 19;
         
         const compHTML = Object.entries(s.signal?.components || {}).map(([k, c]) => `
             <div class="detail-item">
@@ -443,6 +448,7 @@ function renderTable() {
                         <div class="detail-item"><span class="lbl">RSI (14)</span><span class="val">${formatNum(tech.rsi?.value)}</span></div>
                         <div class="detail-item"><span class="lbl">海龜通道</span><span class="val">${toZhTurtle(tech.turtle?.status)}</span></div>
                     </div>
+                    ${window.renderWilliamsDetail ? window.renderWilliamsDetail(tech.williams) : ''}
                     <div class="detail-group">
                         <h4>基本資訊 與 回測</h4>
                         <div class="detail-item"><span class="lbl">發行商</span><span class="val">${s.metadata?.issuer ?? '--'}</span></div>
