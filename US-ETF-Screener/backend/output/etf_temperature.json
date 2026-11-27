@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-28T03:06:34",
+  "updated_at": "2026-11-28T04:06:23",
   "daily": {
     "temperature": 42.13,
     "label": "中性",
@@ -32,23 +32,23 @@
     }
   },
   "1h": {
-    "temperature": 59.46,
+    "temperature": 59.38,
     "label": "中性",
     "components": {
       "above_ma": {
-        "value": 54.64,
+        "value": 54.61,
         "weight": 25,
-        "detail": ">20: 3843 | >60: 2711 | >240: 1380"
+        "detail": ">20: 3845 | >60: 2711 | >240: 1373"
       },
       "macd_positive": {
-        "value": 81.01,
+        "value": 81.07,
         "weight": 20,
-        "detail": "MACD+ 3921/4840"
+        "detail": "MACD+ 3924/4840"
       },
       "turtle_net": {
-        "value": 57.32,
+        "value": 56.77,
         "weight": 15,
-        "detail": "突破 747 | 破低 38"
+        "detail": "突破 690 | 破低 35"
       },
       "vix_inverse": {
         "value": 65.0,
